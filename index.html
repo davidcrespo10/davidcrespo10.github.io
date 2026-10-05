@@ -275,13 +275,209 @@
           </div>
         </div>
       </section>
-      <section class="placeholder-section" id="journey-stories" aria-labelledby="journey-title">
-        <p class="section-number">03 /</p>
-        <h2 id="journey-title">JOURNEY</h2>
+      <section class="journey-section" id="journey-stories" aria-labelledby="journey-title">
+        <div class="journey-heading">
+          <p class="section-number">03 <span>/</span> JOURNEY</p>
+          <h2 id="journey-title">Places that left a mark.</h2>
+          <p class="journey-intro">Select a place to see why it mattered.</p>
+        </div>
+
+        <div class="journey-experience">
+          <div class="journey-map-wrap">
+            <p class="journey-map-label">SELECT A PLACE</p>
+            <div class="journey-map" role="group" aria-label="World map. Madrid is home; choose Tromsø, Seoul or Hong Kong to read a travel story.">
+              <img class="world-map-art" src="assets/images/world-map.svg" alt="" aria-hidden="true">
+              <svg class="journey-routes" viewBox="0 0 1200 560" aria-hidden="true">
+                <path class="route-line route-tromso" d="M588 169 Q612 97 663 56"/>
+                <path class="route-line route-seoul" d="M588 169 Q806 81 1023 180"/>
+                <path class="route-line route-hongkong" d="M588 169 Q806 202 980 240"/>
+                <circle class="map-home-ring" cx="588" cy="169" r="10"/>
+                <circle class="map-home-dot" cx="588" cy="169" r="4"/>
+              </svg>
+              <span class="journey-origin" aria-hidden="true">MADRID · HOME</span>
+              <button class="journey-pin journey-pin-tromso" type="button" data-destination="tromso" aria-controls="trip-tromso" aria-pressed="false" aria-label="Show Tromsø trip">
+                <span class="journey-pin-dot" aria-hidden="true"></span><span class="journey-pin-name">TROMSØ</span>
+              </button>
+              <button class="journey-pin journey-pin-seoul" type="button" data-destination="seoul" aria-controls="trip-seoul" aria-pressed="true" aria-label="Show Seoul trip">
+                <span class="journey-pin-dot" aria-hidden="true"></span><span class="journey-pin-name">SEOUL</span>
+              </button>
+              <button class="journey-pin journey-pin-hongkong" type="button" data-destination="hongkong" aria-controls="trip-hongkong" aria-pressed="false" aria-label="Show Hong Kong trip">
+                <span class="journey-pin-dot" aria-hidden="true"></span><span class="journey-pin-name">HONG KONG</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="journey-stories" aria-live="polite">
+          <article class="journey-story is-current" id="trip-seoul" aria-labelledby="trip-seoul-title">
+            <div class="journey-story-copy">
+              <p class="story-kicker">FRIENDS <span>·</span> CULTURE <span>·</span> HISTORY</p>
+              <h3 id="trip-seoul-title">Seoul</h3>
+              <p class="story-subtitle">A trip with Erasmus friends</p>
+              <p>Travelling with friends made discovering Korean culture feel all the richer. Korean food was a highlight, and visits to major temples offered a very different pace. At the DMZ, learning more about the history between North and South Korea gave the trip another perspective.</p>
+              <p class="story-afterthought">The mix of time with friends and the history at the border is what I remember most.</p>
+            </div>
+            <div class="journey-gallery">
+              <figure class="journey-photo-primary">
+                <img src="assets/images/seoul-temple.jpeg" alt="A group of Erasmus friends together in front of a historic temple in Seoul" loading="lazy">
+                <figcaption>At a Seoul temple</figcaption>
+              </figure>
+              <figure class="journey-photo-secondary">
+                <img src="assets/images/seoul-dmz.jpeg" alt="The group at a military vehicle display during a visit to the DMZ area" loading="lazy">
+                <figcaption>A visit to the DMZ area</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="journey-story" id="trip-hongkong" aria-labelledby="trip-hongkong-title">
+            <div class="journey-story-copy">
+              <p class="story-kicker">FAMILY <span>·</span> A FIRST LOOK AT ASIA</p>
+              <h3 id="trip-hongkong-title">Hong Kong</h3>
+              <p class="story-subtitle">Just before my exchange began</p>
+              <p>I travelled with my parents and younger brother just before starting my exchange in Hong Kong. It was their first time in Asia, and seeing them enjoy the food, culture and energy of the city made it special. We visited Victoria Peak, the Avenue of Stars, temples, Big Buddha and Central.</p>
+              <p class="story-afterthought">It was a family trip, but it also marked the start of my own life in Hong Kong.</p>
+            </div>
+            <div class="journey-gallery">
+              <figure class="journey-photo-primary">
+                <img src="assets/images/hongkong-victoria-peak.jpeg" alt="Hong Kong skyline and harbour viewed from Victoria Peak" loading="lazy">
+                <figcaption>Above the city at Victoria Peak</figcaption>
+              </figure>
+              <figure class="journey-photo-secondary">
+                <img src="assets/images/hongkong-family.jpeg" alt="David with his family by the harbour at night, with Hong Kong's skyline behind them" loading="lazy">
+                <figcaption>A night by the harbour</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="journey-story" id="trip-tromso" aria-labelledby="trip-tromso-title">
+            <div class="journey-story-copy">
+              <p class="story-kicker">LANDSCAPE <span>·</span> NATURE</p>
+              <h3 id="trip-tromso-title">Tromsø</h3>
+              <p class="story-subtitle">A different kind of place</p>
+              <p>The snow, the landscape and the atmosphere made Tromsø feel completely different from my city trips. Seeing reindeer and the northern lights made it one of my most special travel experiences—not for a checklist, but for the feeling of being somewhere so unlike home.</p>
+              <p class="story-afterthought">The snow and the landscape gave this trip a feeling unlike my city breaks.</p>
+            </div>
+            <div class="journey-gallery">
+              <figure class="journey-photo-primary">
+                <img src="assets/images/tromso-reindeer.jpeg" alt="David beside reindeer in a snowy Tromsø landscape" loading="lazy">
+                <figcaption>Reindeer in the snow</figcaption>
+              </figure>
+              <figure class="journey-photo-secondary">
+                <img src="assets/images/tromso-aurora.jpeg" alt="Green northern lights above a snow-covered tree in Tromsø" loading="lazy">
+                <figcaption>The northern lights</figcaption>
+              </figure>
+            </div>
+          </article>
+          </div>
+        </div>
       </section>
-      <section class="placeholder-section" id="football" aria-labelledby="football-title">
-        <p class="section-number">04 /</p>
-        <h2 id="football-title">FOOTBALL</h2>
+
+      <section class="football-section" id="football" aria-labelledby="football-title">
+        <div class="football-heading">
+          <p class="section-number">04 <span>/</span> FOOTBALL</p>
+          <h2 id="football-title">A part of my life,<br><em>then and now.</em></h2>
+          <p class="football-intro">From my first years on the pitch to Sunday games with friends, football has given me discipline, teamwork, friendships and memories I still carry.</p>
+        </div>
+
+        <div class="football-experience">
+          <div class="football-timeline-viewport" aria-label="Select a football milestone">
+            <p class="football-timeline-instruction">Choose a milestone to follow my football journey.</p>
+            <div class="football-timeline" role="tablist" aria-label="Football through the years">
+              <span class="football-ball-marker" aria-hidden="true"></span>
+              <button class="football-tab" id="football-tab-01" type="button" role="tab" aria-selected="true" aria-controls="football-panel-01">
+                <span class="football-tab-index">01</span><span class="football-tab-label">Starting young</span>
+              </button>
+              <button class="football-tab" id="football-tab-02" type="button" role="tab" aria-selected="false" aria-controls="football-panel-02">
+                <span class="football-tab-index">02</span><span class="football-tab-label">Competitive years</span>
+              </button>
+              <button class="football-tab" id="football-tab-03" type="button" role="tab" aria-selected="false" aria-controls="football-panel-03">
+                <span class="football-tab-index">03</span><span class="football-tab-label">Federation stage</span>
+              </button>
+              <button class="football-tab" id="football-tab-04" type="button" role="tab" aria-selected="false" aria-controls="football-panel-04">
+                <span class="football-tab-index">04</span><span class="football-tab-label">Shanghai</span>
+              </button>
+              <button class="football-tab" id="football-tab-05" type="button" role="tab" aria-selected="false" aria-controls="football-panel-05">
+                <span class="football-tab-index">05</span><span class="football-tab-label">What it gave me</span>
+              </button>
+              <button class="football-tab" id="football-tab-06" type="button" role="tab" aria-selected="false" aria-controls="football-panel-06">
+                <span class="football-tab-index">06</span><span class="football-tab-label">Still every Sunday</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="football-panels" aria-live="polite">
+            <article class="football-panel" id="football-panel-01" role="tabpanel" aria-labelledby="football-tab-01" tabindex="0">
+              <div class="football-panel-copy">
+                <p class="football-step">THE BEGINNING <span>·</span> AGE 5</p>
+                <h3>Starting young</h3>
+                <p>I started playing football at five. Training and showing up regularly were my first lessons in discipline.</p>
+              </div>
+              <figure class="football-photo football-photo-childhood">
+                <img src="assets/images/football-childhood-trophy.jpeg" alt="David as a child with his trophy, with the Spanish federation banner visible in the foreground" loading="lazy">
+                <figcaption>An early football memory</figcaption>
+              </figure>
+            </article>
+
+            <article class="football-panel" id="football-panel-02" role="tabpanel" aria-labelledby="football-tab-02" tabindex="0">
+              <div class="football-panel-copy">
+                <p class="football-step">13 YEARS <span>·</span> AGE 5–18</p>
+                <h3>Competitive years</h3>
+                <p>I played competitive football in federated leagues from five to eighteen. As a central midfielder, I learned to read the game and work for the team.</p>
+              </div>
+              <div class="football-panel-note football-competitive-facts" aria-label="Thirteen years of competitive football; position, central midfielder">
+                <p><strong>13 YEARS</strong><span>Competitive football</span></p>
+                <p><strong>POSITION</strong><span>Central midfielder</span></p>
+              </div>
+            </article>
+
+            <article class="football-panel" id="football-panel-03" role="tabpanel" aria-labelledby="football-tab-03" tabindex="0">
+              <div class="football-panel-copy">
+                <p class="football-step">TEN YEARS <span>·</span> FEDERATED FOOTBALL</p>
+                <h3>Federation stage</h3>
+                <p>Competing within the Spanish federation system was an important part of my development as a player and teammate.</p>
+              </div>
+              <div class="football-panel-note football-panel-note-years">
+                <p><strong>10 YEARS</strong><span>In federated football</span></p>
+              </div>
+            </article>
+
+            <article class="football-panel" id="football-panel-04" role="tabpanel" aria-labelledby="football-tab-04" tabindex="0">
+              <div class="football-panel-copy">
+                <p class="football-step">TOURNAMENTS <span>·</span> AGE 13</p>
+                <h3>A tournament in Shanghai</h3>
+                <p>At thirteen, I played in a tournament in Shanghai. Football became a way to travel with teammates and have experiences I still remember.</p>
+              </div>
+              <figure class="football-photo football-photo-shanghai">
+                <img src="assets/images/football-shanghai.jpeg" alt="David and his youth football teammates in red, with Shanghai's tall buildings behind them" loading="lazy">
+                <figcaption>Shanghai — a football trip at thirteen</figcaption>
+              </figure>
+            </article>
+
+            <article class="football-panel football-panel-gifts" id="football-panel-05" role="tabpanel" aria-labelledby="football-tab-05" tabindex="0">
+              <div class="football-panel-copy">
+                <p class="football-step">WHAT REMAINS</p>
+                <h3>More than the game</h3>
+                <p>Football has been a very important and beautiful part of my life. It gave me friendships, trips to tournaments and unforgettable experiences.</p>
+              </div>
+              <ol class="football-gifts" aria-label="What football gave me">
+                <li>Discipline</li><li>Teamwork</li><li>Friendships</li><li>Travel</li><li>Memories</li>
+              </ol>
+            </article>
+
+            <article class="football-panel football-panel-present" id="football-panel-06" role="tabpanel" aria-labelledby="football-tab-06" tabindex="0">
+              <div class="football-panel-copy">
+                <p class="football-step">THE PRESENT</p>
+                <h3>STILL EVERY SUNDAY</h3>
+                <p>Football was important while I was growing up, but it is not only a memory. I still play every Sunday with my friends.</p>
+                <p class="football-team-label">My current team is</p>
+                <p class="football-team-name">Sofa FC.</p>
+              </div>
+              <figure class="football-photo football-photo-sofa">
+                <img src="assets/images/football-sofa-fc-story.jpeg" alt="The complete Sofa FC team in pink with the team trophy visible in front" loading="lazy">
+                <figcaption>Sofa FC — still part of my Sundays</figcaption>
+              </figure>
+            </article>
+          </div>
+        </div>
       </section>
       <section class="placeholder-section" id="mindset" aria-labelledby="mindset-title">
         <p class="section-number">05 /</p>

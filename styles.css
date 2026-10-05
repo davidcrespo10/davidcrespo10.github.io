@@ -1752,3 +1752,1697 @@ h1 span {
     animation: none;
   }
 }
+
+.journey-section,
+.football-section {
+  padding: 3.1rem 0 3.6rem;
+  border-top: 1px solid var(--rule);
+  scroll-margin-top: 1.5rem;
+}
+
+.journey-heading,
+.football-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 0.58fr);
+  align-items: end;
+  column-gap: 3rem;
+  row-gap: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.journey-heading .section-number,
+.football-heading .section-number {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.journey-heading h2,
+.football-heading h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 4.8vw, 4.1rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 1.04;
+}
+
+.journey-heading h2 em,
+.football-heading h2 em {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.journey-intro,
+.football-intro {
+  max-width: 390px;
+  margin: 0 0 0.2rem;
+  color: #55534d;
+  font-size: 0.84rem;
+  line-height: 1.75;
+}
+
+.journey-map-wrap {
+  margin-bottom: 1.7rem;
+  padding: 1rem 1.15rem 0.85rem;
+  border: 1px solid var(--rule);
+  background: #efede6;
+}
+
+.journey-map-label,
+.journey-map-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.59rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.journey-map {
+  position: relative;
+  height: clamp(210px, 27vw, 340px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.world-map-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: #d8d5cb;
+}
+
+.map-graticule {
+  position: absolute;
+  z-index: -1;
+  inset: 10% 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(25% - 1px),
+    rgba(105, 103, 96, 0.12) calc(25% - 1px),
+    rgba(105, 103, 96, 0.12) 25%
+  );
+  pointer-events: none;
+}
+
+.journey-pin {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  gap: 0.42rem;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.45rem 0.35rem;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+}
+
+.journey-pin-tromso {
+  top: 15%;
+  left: 55.3%;
+}
+
+.journey-pin-seoul {
+  top: 26%;
+  left: 87%;
+}
+
+.journey-pin-hongkong {
+  top: 45%;
+  left: 77%;
+}
+
+.journey-pin-dot {
+  position: relative;
+  display: block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--paper);
+  border-radius: 50%;
+  background: #77746c;
+  box-shadow: 0 0 0 1px #77746c;
+  transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.journey-pin-name {
+  position: absolute;
+  top: calc(100% + 0.08rem);
+  left: 50%;
+  padding: 0.23rem 0.32rem;
+  background: rgba(244, 242, 236, 0.88);
+  color: #55534d;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  transition: color 160ms ease;
+  pointer-events: none;
+}
+
+.journey-pin-seoul .journey-pin-name {
+  top: auto;
+  bottom: calc(100% + 0.08rem);
+}
+
+.journey-pin:hover .journey-pin-dot,
+.journey-pin:focus-visible .journey-pin-dot {
+  transform: scale(1.18);
+}
+
+.journey-pin[aria-pressed="true"] .journey-pin-dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--accent);
+}
+
+.journey-pin[aria-pressed="true"] .journey-pin-name {
+  color: var(--accent);
+}
+
+.journey-pin-hongkong[aria-pressed="true"] .journey-pin-dot {
+  background: var(--saffron);
+  box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px #9a7412;
+}
+
+.journey-pin-hongkong[aria-pressed="true"] .journey-pin-name {
+  color: #775a13;
+}
+
+.journey-map-note {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid rgba(105, 103, 96, 0.18);
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.journey-map-note span {
+  color: var(--saffron);
+  font-size: 0.65rem;
+}
+
+.journey-story {
+  display: grid;
+  grid-template-columns: minmax(230px, 0.78fr) minmax(0, 1.22fr);
+  align-items: stretch;
+  gap: clamp(1.6rem, 4vw, 4rem);
+  padding: 1.45rem 0 0;
+  border-top: 1px solid var(--rule);
+  animation: panel-arrive 220ms ease both;
+}
+
+.journey-story[hidden] {
+  display: none;
+}
+
+.journey-story-copy {
+  align-self: center;
+  max-width: 460px;
+  padding: 0.6rem 0;
+}
+
+.story-kicker {
+  margin: 0 0 0.9rem;
+  color: var(--accent);
+  font-size: 0.57rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.story-kicker span {
+  padding: 0 0.18rem;
+  color: #aaa69d;
+}
+
+.journey-story h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 4vw, 3.55rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.story-subtitle {
+  margin: 0.55rem 0 1.1rem;
+  color: #775a13;
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.journey-story-copy > p:not(.story-kicker, .story-subtitle, .story-afterthought) {
+  margin: 0;
+  color: #55534d;
+  font-size: 0.82rem;
+  line-height: 1.75;
+}
+
+.story-afterthought {
+  margin: 1rem 0 0;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--saffron);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.journey-gallery {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-content: center;
+  align-items: start;
+  gap: 0.8rem;
+  min-width: 0;
+}
+
+.journey-gallery figure,
+.football-photo {
+  min-width: 0;
+  margin: 0;
+}
+
+.journey-gallery figure:nth-child(2) {
+  margin-top: 2rem;
+}
+
+.journey-gallery img {
+  display: block;
+  width: 100%;
+  height: clamp(170px, 20vw, 270px);
+  border: 1px solid rgba(23, 23, 23, 0.08);
+  object-fit: cover;
+}
+
+.journey-gallery figcaption,
+.football-photo figcaption {
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-size: 0.57rem;
+  line-height: 1.5;
+}
+
+.journey-gallery figure:first-child img {
+  object-position: center;
+}
+
+.journey-story#trip-tromso .journey-gallery figure:first-child img {
+  object-position: center 58%;
+}
+
+.football-section {
+  padding-bottom: 3rem;
+}
+
+.football-heading {
+  margin-bottom: 2.6rem;
+}
+
+.football-timeline {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(2.25rem, 7vw, 6rem);
+  row-gap: 2.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.football-moment {
+  position: relative;
+  min-width: 0;
+  padding: 1.75rem 0.4rem 0 0;
+  border-top: 1px solid var(--rule);
+}
+
+.football-marker {
+  position: absolute;
+  top: -7px;
+  left: 0;
+  z-index: 1;
+  width: 13px;
+  height: 13px;
+  border: 3px solid var(--paper);
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.football-moment:nth-child(odd)::after {
+  position: absolute;
+  top: -1px;
+  left: 13px;
+  width: calc(100% + clamp(2.25rem, 7vw, 6rem) - 13px);
+  height: 1px;
+  background: linear-gradient(to right, var(--accent), var(--rule));
+  content: "";
+}
+
+.football-moment:nth-child(3)::after,
+.football-moment:nth-child(6)::after {
+  display: none;
+}
+
+.football-step {
+  margin: 0 0 0.7rem;
+  color: var(--accent);
+  font-size: 0.57rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.football-step span {
+  padding: 0 0.15rem;
+  color: #aaa69d;
+}
+
+.football-moment h3 {
+  margin: 0 0 0.55rem;
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+}
+
+.football-moment > p:not(.football-step) {
+  max-width: 480px;
+  margin: 0;
+  color: #55534d;
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.football-moment strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.football-photo {
+  margin-top: 1rem;
+}
+
+.football-photo img {
+  display: block;
+  width: 100%;
+  height: clamp(170px, 18vw, 230px);
+  border: 1px solid rgba(23, 23, 23, 0.08);
+  object-fit: cover;
+}
+
+.football-moment:nth-child(1) .football-photo img {
+  object-position: center 56%;
+}
+
+.football-moment:nth-child(4) .football-photo img {
+  object-position: center 56%;
+}
+
+.football-moment-current {
+  padding-right: 0;
+}
+
+.football-moment-current .football-marker {
+  background: var(--saffron);
+  box-shadow: 0 0 0 1px #9a7412;
+}
+
+.football-moment-current .football-step {
+  color: #775a13;
+}
+
+.football-moment-current .football-photo img {
+  object-position: center 43%;
+}
+
+@media (max-width: 900px) {
+  .journey-heading,
+  .football-heading {
+    column-gap: 2rem;
+  }
+
+  .journey-story {
+    grid-template-columns: minmax(200px, 0.78fr) minmax(0, 1.22fr);
+    gap: 1.7rem;
+  }
+
+  .journey-gallery {
+    gap: 0.55rem;
+  }
+
+  .journey-gallery img {
+    height: 210px;
+  }
+
+  .football-timeline {
+    column-gap: 2.25rem;
+  }
+
+  .football-moment:nth-child(odd)::after {
+    width: calc(100% + 2.25rem - 13px);
+  }
+}
+
+@media (max-width: 700px) {
+  .journey-section,
+  .football-section {
+    padding: 2.1rem 0 2.6rem;
+  }
+
+  .journey-heading,
+  .football-heading {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .journey-heading h2,
+  .football-heading h2 {
+    font-size: clamp(2.4rem, 8vw, 3.5rem);
+  }
+
+  .journey-intro,
+  .football-intro {
+    max-width: 480px;
+    font-size: 0.82rem;
+  }
+
+  .journey-map-wrap {
+    margin-bottom: 1.3rem;
+    padding: 0.8rem 0.65rem 0.7rem;
+  }
+
+  .journey-map {
+    height: clamp(190px, 57vw, 250px);
+  }
+
+  .journey-pin {
+    gap: 0.32rem;
+    min-width: 42px;
+    padding: 0.45rem 0.2rem;
+  }
+
+  .journey-pin-name {
+    padding: 0.2rem 0.25rem;
+    font-size: 0.49rem;
+    letter-spacing: 0.07em;
+  }
+
+  .journey-pin-dot {
+    width: 11px;
+    height: 11px;
+  }
+
+  .journey-story {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding-top: 1.2rem;
+  }
+
+  .journey-story-copy {
+    max-width: 560px;
+    padding: 0;
+  }
+
+  .journey-story h3 {
+    font-size: 2.7rem;
+  }
+
+  .journey-story-copy > p:not(.story-kicker, .story-subtitle, .story-afterthought) {
+    font-size: 0.8rem;
+  }
+
+  .journey-gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem;
+  }
+
+  .journey-gallery figure:nth-child(2) {
+    margin-top: 1.2rem;
+  }
+
+  .journey-gallery img {
+    height: clamp(135px, 42vw, 210px);
+  }
+
+  .football-heading {
+    margin-bottom: 2rem;
+  }
+
+  .football-timeline {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+    padding-left: 1.1rem;
+  }
+
+  .football-timeline::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 5px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), var(--saffron));
+    content: "";
+  }
+
+  .football-moment {
+    padding: 0.15rem 0 0 0.7rem;
+    border-top: 0;
+  }
+
+  .football-moment::after {
+    display: none !important;
+  }
+
+  .football-marker {
+    top: 0.08rem;
+    left: -1.1rem;
+  }
+
+  .football-moment h3 {
+    font-size: 1.45rem;
+  }
+
+  .football-moment > p:not(.football-step) {
+    font-size: 0.78rem;
+  }
+
+  .football-photo {
+    max-width: 480px;
+  }
+
+  .football-photo img {
+    height: clamp(180px, 58vw, 260px);
+  }
+}
+
+@media (max-width: 380px) {
+  .journey-pin-tromso {
+    left: 53%;
+  }
+
+  .journey-pin-seoul {
+    left: 88%;
+  }
+
+  .journey-pin-hongkong {
+    left: 74%;
+  }
+
+  .journey-gallery figcaption {
+    font-size: 0.52rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-story {
+    animation: none;
+  }
+}
+
+.journey-section {
+  --journey-local-accent: var(--accent);
+  position: relative;
+  isolation: isolate;
+}
+
+.journey-section::before {
+  position: absolute;
+  z-index: -1;
+  inset-block: 0;
+  inset-inline: 0;
+  background: #eaf0f1;
+  content: "";
+}
+
+.journey-section[data-active-destination="tromso"] {
+  --journey-local-accent: #547681;
+}
+
+.journey-section[data-active-destination="hongkong"] {
+  --journey-local-accent: #4b647d;
+}
+
+.journey-heading h2 {
+  max-width: 850px;
+  font-size: clamp(2.4rem, 4.3vw, 3.7rem);
+}
+
+.journey-heading h2 em {
+  color: inherit;
+  font-style: normal;
+}
+
+.journey-map-wrap {
+  padding: 1rem 1.15rem 0.8rem;
+  border-color: #cbd7d9;
+  background: #e3ebec;
+}
+
+.journey-map {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 1200 / 560;
+}
+
+.world-map-art,
+.journey-routes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.world-map-art {
+  object-fit: fill;
+}
+
+.journey-routes {
+  overflow: visible;
+}
+
+.route-line {
+  fill: none;
+  stroke: #a33a32;
+  stroke-dasharray: 5 7;
+  stroke-width: 1.5;
+  opacity: 0.65;
+  vector-effect: non-scaling-stroke;
+}
+
+.route-tromso {
+  stroke: #547681;
+}
+
+.route-seoul {
+  stroke: #a33a32;
+}
+
+.route-hongkong {
+  stroke: #4b647d;
+}
+
+.map-home-ring {
+  fill: #eaf0f1;
+  stroke: #a33a32;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.map-home-dot {
+  fill: #a33a32;
+}
+
+.journey-origin {
+  position: absolute;
+  top: 27%;
+  left: 49%;
+  display: grid;
+  gap: 0.1rem;
+  color: #696760;
+  font-size: 0.48rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.25;
+  text-align: left;
+  pointer-events: none;
+}
+
+.journey-origin strong {
+  color: var(--accent);
+  font-size: 0.57rem;
+  letter-spacing: 0.08em;
+}
+
+.journey-pin {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+}
+
+.journey-pin-tromso {
+  top: 10%;
+  left: 55.25%;
+}
+
+.journey-pin-seoul {
+  top: 32.15%;
+  left: 85.25%;
+}
+
+.journey-pin-hongkong {
+  top: 42.85%;
+  left: 81.67%;
+}
+
+.journey-pin-dot {
+  background: #77746c;
+  box-shadow: 0 0 0 1px #77746c;
+}
+
+.journey-pin-name {
+  background: rgba(234, 240, 241, 0.94);
+  color: #4c5759;
+}
+
+.journey-pin-seoul .journey-pin-name {
+  top: calc(100% + 0.08rem);
+  bottom: auto;
+}
+
+.journey-pin[aria-pressed="true"] .journey-pin-dot {
+  background: var(--journey-local-accent);
+  box-shadow: 0 0 0 2px #eaf0f1, 0 0 0 4px var(--journey-local-accent);
+}
+
+.journey-pin[aria-pressed="true"] .journey-pin-name,
+.journey-story .story-kicker {
+  color: var(--journey-local-accent);
+}
+
+.journey-story .story-afterthought {
+  border-color: var(--journey-local-accent);
+}
+
+.journey-stories.has-interaction .journey-story:not(.is-current) {
+  display: none;
+}
+
+.journey-story {
+  grid-template-columns: minmax(230px, 0.65fr) minmax(0, 1.35fr);
+  gap: clamp(1.5rem, 3.4vw, 3.5rem);
+  align-items: center;
+  padding-top: 1.25rem;
+  border-color: #cbd7d9;
+  animation-duration: 180ms;
+}
+
+.journey-story-copy {
+  max-width: 430px;
+}
+
+.journey-story h3 {
+  font-size: clamp(2.4rem, 3.4vw, 3.3rem);
+}
+
+.journey-gallery {
+  grid-template-columns: minmax(0, 1.22fr) minmax(180px, 0.78fr);
+  align-items: end;
+  gap: clamp(0.6rem, 1.4vw, 1.15rem);
+}
+
+.journey-gallery figure {
+  min-width: 0;
+}
+
+.journey-gallery img {
+  width: 100%;
+  height: auto;
+  max-height: 470px;
+  border: 1px solid #cbd7d9;
+  background: #dfe7e8;
+  object-fit: contain;
+}
+
+.journey-gallery .journey-photo-secondary img {
+  max-height: 350px;
+}
+
+.journey-gallery .journey-photo-secondary {
+  padding-bottom: 1.35rem;
+}
+
+.journey-gallery figcaption {
+  color: #505b5d;
+}
+
+.football-section {
+  --football-paper: #f1ecdf;
+  position: relative;
+  isolation: isolate;
+}
+
+.football-section::before {
+  position: absolute;
+  z-index: -1;
+  inset-block: 0;
+  inset-inline: 0;
+  background: var(--football-paper);
+  content: "";
+}
+
+.football-heading h2 {
+  font-size: clamp(2.5rem, 4.8vw, 4.1rem);
+}
+
+.football-timeline-viewport {
+  max-width: 100%;
+  margin: 0 0 1.25rem;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-color: #b9afa0 transparent;
+  scrollbar-width: thin;
+}
+
+.football-timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  min-width: 740px;
+  margin: 0;
+  padding: 2.3rem 0 0.85rem;
+  list-style: none;
+}
+
+.football-timeline::before {
+  position: absolute;
+  top: 0.86rem;
+  right: 8.33%;
+  left: 8.33%;
+  height: 1px;
+  background: linear-gradient(to right, var(--accent), #bdb5a8 76%, var(--saffron));
+  content: "";
+}
+
+.football-tab {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto;
+  justify-items: start;
+  gap: 0.35rem;
+  min-width: 0;
+  min-height: 50px;
+  padding: 0.05rem 0.5rem 0.2rem;
+  border: 0;
+  background: transparent;
+  color: #55534d;
+  cursor: pointer;
+  text-align: left;
+}
+
+.football-tab::before {
+  position: absolute;
+  top: -1.92rem;
+  left: 0.54rem;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--football-paper);
+  border-radius: 50%;
+  background: #aaa398;
+  box-shadow: 0 0 0 1px #aaa398;
+  content: "";
+  transition: background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.football-tab[aria-selected="true"] {
+  color: var(--accent);
+}
+
+.football-tab[aria-selected="true"]::before {
+  background: var(--accent);
+  box-shadow: 0 0 0 2px var(--football-paper), 0 0 0 3px var(--accent);
+}
+
+.football-tab:last-of-type[aria-selected="true"] {
+  color: #775a13;
+}
+
+.football-tab:last-of-type[aria-selected="true"]::before {
+  background: var(--saffron);
+  box-shadow: 0 0 0 2px var(--football-paper), 0 0 0 3px #9a7412;
+}
+
+.football-tab-index {
+  color: #77746c;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.football-tab[aria-selected="true"] .football-tab-index {
+  color: inherit;
+}
+
+.football-tab-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.football-ball-marker {
+  position: absolute;
+  z-index: 2;
+  top: 0.36rem;
+  left: 8.33%;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--football-paper);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0 2.8px, #171717 3px 3.7px, transparent 4px),
+    conic-gradient(from 18deg, transparent 0 12%, #171717 12.5% 14%, transparent 14.5% 32%, #171717 32.5% 34%, transparent 34.5% 52%, #171717 52.5% 54%, transparent 54.5% 72%, #171717 72.5% 74%, transparent 74.5% 92%, #171717 92.5% 94%, transparent 94.5%);
+  box-shadow: 0 0 0 1px #171717;
+  transform: translateX(-50%);
+  transition: left 240ms ease;
+  pointer-events: none;
+}
+
+.football-panels {
+  border-top: 1px solid #d1c8b8;
+}
+
+.football-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: clamp(1.6rem, 4vw, 4.2rem);
+  min-height: 330px;
+  padding: 1.6rem 0 0.5rem;
+  animation: panel-arrive 180ms ease both;
+}
+
+.football-panel[hidden] {
+  display: none;
+}
+
+.football-panel-copy {
+  max-width: 470px;
+}
+
+.football-panel-copy .football-step {
+  margin: 0 0 0.85rem;
+}
+
+.football-panel-copy .football-step span {
+  padding: 0 0.2rem;
+}
+
+.football-panel h3 {
+  margin: 0 0 0.75rem;
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 3.3vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 1.05;
+}
+
+.football-panel-copy > p:not(.football-step, .football-team-label, .football-team-name) {
+  max-width: 440px;
+  margin: 0;
+  color: #55534d;
+  font-size: 0.84rem;
+  line-height: 1.75;
+}
+
+.football-photo {
+  align-self: center;
+  width: 100%;
+  margin: 0;
+  padding: 0.45rem;
+  background: #e4ddce;
+}
+
+.football-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 440px;
+  border: 1px solid rgba(23, 23, 23, 0.08);
+  background: #e4ddce;
+  object-fit: contain;
+}
+
+.football-photo figcaption {
+  color: #5b564c;
+}
+
+.football-photo-childhood img {
+  object-position: center center;
+}
+
+.football-photo-shanghai img {
+  object-position: center center;
+}
+
+.football-photo-sofa img {
+  object-position: center center;
+}
+
+.football-panel-note {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: clamp(0.5rem, 1.7vw, 1.4rem);
+  min-height: 240px;
+  padding: 1.5rem;
+  border-left: 1px solid #d1c8b8;
+  color: var(--accent);
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+}
+
+.football-panel-note > span:first-child,
+.football-panel-note-years > span:first-child {
+  font-size: clamp(4.5rem, 10vw, 8.5rem);
+  letter-spacing: -0.08em;
+  line-height: 0.9;
+}
+
+.football-panel-note p {
+  align-self: center;
+  margin: 0;
+  color: #696760;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.football-panel-note p strong {
+  color: var(--ink);
+  font-size: 0.83rem;
+}
+
+.football-panel-note-years {
+  color: #9a7412;
+}
+
+.football-panel-gifts {
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+}
+
+.football-gifts {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 0.15rem 1.2rem;
+  min-height: 200px;
+  margin: 0;
+  padding: 1.5rem 0 1.5rem 1.5rem;
+  border-left: 1px solid #d1c8b8;
+  list-style: none;
+}
+
+.football-gifts li {
+  padding: 0.65rem 0;
+  border-bottom: 1px solid #c9beac;
+  color: var(--accent);
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2.2vw, 1.8rem);
+  letter-spacing: -0.03em;
+}
+
+.football-team-label {
+  margin: 1rem 0 0.1rem;
+  color: #775a13;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.football-panel-copy .football-team-name {
+  margin: 0;
+  color: #775a13;
+  font-family: var(--serif);
+  font-size: clamp(2.3rem, 4.2vw, 3.6rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 1.05;
+}
+
+@media (max-width: 900px) {
+  .journey-story {
+    grid-template-columns: minmax(200px, 0.58fr) minmax(0, 1.42fr);
+    gap: 1.5rem;
+  }
+
+  .journey-gallery {
+    grid-template-columns: minmax(0, 1.1fr) minmax(140px, 0.9fr);
+    gap: 0.55rem;
+  }
+
+  .journey-gallery img {
+    max-height: 390px;
+  }
+
+  .journey-gallery .journey-photo-secondary img {
+    max-height: 300px;
+  }
+
+  .football-panel {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 1.5rem;
+  }
+
+  .football-timeline {
+    min-width: 0;
+  }
+
+  .football-photo img {
+    max-height: 380px;
+  }
+
+  .journey-pin-seoul {
+    transform: translate(-50%, calc(-50% - 8px));
+  }
+
+  .journey-pin-hongkong {
+    transform: translate(-50%, calc(-50% + 8px));
+  }
+
+  .journey-pin-seoul .journey-pin-dot {
+    transform: translateY(8px);
+  }
+
+  .journey-pin-hongkong .journey-pin-dot {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 700px) {
+  .journey-heading h2 {
+    max-width: 560px;
+    font-size: clamp(2.35rem, 8vw, 3.4rem);
+  }
+
+  .journey-map-wrap {
+    padding: 0.75rem 0.6rem 0.7rem;
+  }
+
+  .journey-map {
+    aspect-ratio: 1.95 / 1;
+  }
+
+  .journey-pin-tromso {
+    top: 16%;
+    transform: translate(-50%, calc(-50% + 6px));
+  }
+
+  .journey-pin-tromso .journey-pin-dot {
+    transform: translateY(-6px);
+  }
+
+  .journey-pin-tromso .journey-pin-name {
+    top: 50%;
+    right: calc(100% + 0.1rem);
+    bottom: auto;
+    left: auto;
+    transform: translateY(-50%);
+  }
+
+  .journey-pin-seoul {
+    transform: translate(-50%, calc(-50% - 16px));
+  }
+
+  .journey-pin-hongkong {
+    transform: translate(-50%, calc(-50% + 16px));
+  }
+
+  .journey-pin-seoul .journey-pin-dot {
+    transform: translateY(16px);
+  }
+
+  .journey-pin-seoul .journey-pin-name {
+    top: 50%;
+    right: calc(100% + 0.1rem);
+    bottom: auto;
+    left: auto;
+    transform: translateY(-50%);
+  }
+
+  .journey-pin-hongkong .journey-pin-dot {
+    transform: translateY(-16px);
+  }
+
+  .journey-story {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .journey-story-copy {
+    max-width: 600px;
+  }
+
+  .journey-gallery {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.8rem;
+  }
+
+  .journey-gallery img {
+    max-height: 390px;
+  }
+
+  .journey-gallery .journey-photo-secondary img {
+    max-height: 320px;
+  }
+
+  .journey-gallery .journey-photo-secondary {
+    padding-bottom: 0;
+  }
+
+  .football-heading {
+    margin-bottom: 1.6rem;
+  }
+
+  .football-timeline-viewport {
+    margin: 0 0 1.1rem;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .football-timeline {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    min-width: 0;
+    padding: 0 0 0 2rem;
+  }
+
+  .football-timeline::before {
+    top: 1.5rem;
+    right: auto;
+    bottom: 1.5rem;
+    left: 0.7rem;
+    width: 1px;
+    height: auto;
+    background: linear-gradient(to bottom, var(--accent), #bdb5a8 76%, var(--saffron));
+  }
+
+  .football-tab {
+    grid-template-columns: 2rem minmax(0, 1fr);
+    grid-template-rows: auto;
+    align-items: center;
+    column-gap: 0.55rem;
+    min-height: 48px;
+    padding: 0.35rem 0.4rem;
+  }
+
+  .football-tab::before {
+    top: 50%;
+    left: -1.6rem;
+    transform: translateY(-50%);
+  }
+
+  .football-tab-label {
+    max-width: none;
+    font-size: 0.65rem;
+  }
+
+  .football-ball-marker {
+    top: 1.5rem;
+    left: 0.7rem;
+    transform: translate(-50%, -50%);
+  }
+
+  .football-panel,
+  .football-panel-gifts {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    min-height: 0;
+    padding-top: 1.2rem;
+  }
+
+  .football-panel-copy {
+    max-width: 600px;
+  }
+
+  .football-panel h3 {
+    font-size: clamp(1.9rem, 7vw, 2.6rem);
+  }
+
+  .football-panel-copy > p:not(.football-step, .football-team-label, .football-team-name) {
+    font-size: 0.8rem;
+  }
+
+  .football-photo {
+    max-width: 520px;
+    justify-self: center;
+  }
+
+  .football-photo img {
+    max-height: 440px;
+  }
+
+  .football-panel-note {
+    min-height: 150px;
+    justify-content: flex-start;
+    padding: 1rem 0 1rem 1.1rem;
+    border-top: 1px solid #d1c8b8;
+    border-left: 0;
+  }
+
+  .football-panel-note > span:first-child,
+  .football-panel-note-years > span:first-child {
+    font-size: clamp(4rem, 17vw, 6.5rem);
+  }
+
+  .football-gifts {
+    gap: 0 0.8rem;
+    min-height: 0;
+    padding: 0.5rem 0 0;
+    border-top: 1px solid #d1c8b8;
+    border-left: 0;
+  }
+
+  .football-gifts li {
+    font-size: clamp(1.2rem, 5vw, 1.65rem);
+  }
+
+  .football-panel-present .football-photo img {
+    max-height: 480px;
+  }
+}
+
+@media (max-width: 380px) {
+  .journey-map {
+    aspect-ratio: 1.8 / 1;
+  }
+
+  .journey-pin-tromso {
+    top: 18%;
+  }
+
+  .journey-pin-seoul {
+    transform: translate(-50%, calc(-50% - 18px));
+  }
+
+  .journey-pin-hongkong {
+    transform: translate(-50%, calc(-50% + 18px));
+  }
+
+  .journey-pin-seoul .journey-pin-dot {
+    transform: translateY(18px);
+  }
+
+  .journey-pin-seoul .journey-pin-name {
+    top: 50%;
+    right: calc(100% + 0.1rem);
+    bottom: auto;
+    left: auto;
+    transform: translateY(-50%);
+  }
+
+  .journey-pin-hongkong .journey-pin-dot {
+    transform: translateY(-18px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-story,
+  .football-panel {
+    animation: none;
+  }
+
+  .football-ball-marker,
+  .journey-pin-dot {
+    transition: none;
+  }
+}
+
+.journey-section::before {
+  background: var(--paper);
+}
+
+.journey-section[data-active-destination="tromso"],
+.journey-section[data-active-destination="hongkong"] {
+  --journey-local-accent: var(--accent);
+}
+
+.journey-experience {
+  display: grid;
+  grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
+  align-items: start;
+  gap: clamp(1.25rem, 2.5vw, 2.4rem);
+}
+
+.journey-map-wrap {
+  margin: 0;
+  padding: 0.9rem 0.9rem 0.75rem;
+  border-color: var(--rule);
+  background: #efede6;
+}
+
+.journey-map {
+  aspect-ratio: 1200 / 560;
+}
+
+.journey-origin {
+  top: 25%;
+  left: 28%;
+  width: 18%;
+  padding: 0.1rem 0.16rem;
+  background: rgba(239, 237, 230, 0.94);
+  color: var(--accent);
+  font-size: 0.49rem;
+  letter-spacing: 0.07em;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.journey-origin strong {
+  color: var(--accent);
+}
+
+.route-tromso,
+.route-hongkong {
+  stroke: #8a8174;
+}
+
+.map-home-ring {
+  fill: #efede6;
+}
+
+.journey-pin-name {
+  background: rgba(239, 237, 230, 0.96);
+  color: #55534d;
+}
+
+.journey-pin[aria-pressed="true"] .journey-pin-dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 2px #efede6, 0 0 0 4px var(--accent);
+}
+
+.journey-stories {
+  min-width: 0;
+}
+
+.journey-story {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.8rem;
+  padding: 0;
+  border: 0;
+}
+
+.journey-story-copy {
+  max-width: none;
+  padding: 0;
+}
+
+.journey-story .story-kicker {
+  margin-bottom: 0.5rem;
+}
+
+.journey-story h3 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+}
+
+.journey-story .story-subtitle {
+  margin: 0.35rem 0 0.65rem;
+}
+
+.journey-story-copy > p:not(.story-kicker, .story-subtitle, .story-afterthought) {
+  max-width: 62ch;
+  font-size: 0.76rem;
+  line-height: 1.62;
+}
+
+.journey-story .story-afterthought {
+  margin-top: 0.65rem;
+  font-size: 0.83rem;
+}
+
+.journey-gallery {
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  align-items: start;
+  gap: 0.65rem;
+}
+
+.journey-gallery figure:nth-child(2) {
+  margin-top: 1rem;
+}
+
+.journey-gallery img,
+.journey-gallery .journey-photo-secondary img {
+  height: auto;
+  max-height: 245px;
+  border-color: var(--rule);
+  background: #efede6;
+  object-fit: contain;
+}
+
+.journey-gallery .journey-photo-secondary img {
+  max-height: 190px;
+}
+
+.journey-gallery figcaption {
+  color: var(--muted);
+}
+
+.football-experience {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.football-timeline-instruction {
+  margin: 0 0 0.65rem;
+  color: var(--muted);
+  font-size: 0.62rem;
+  line-height: 1.5;
+}
+
+.football-panel {
+  min-height: 0;
+  padding: 1.1rem clamp(1rem, 2vw, 1.5rem) 0.5rem;
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
+}
+
+.football-panel-note.football-competitive-facts,
+.football-panel-note-years {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: center;
+  justify-content: initial;
+  gap: 1rem;
+  min-height: 170px;
+  padding: 1rem 0 1rem 1.5rem;
+  font-family: var(--sans);
+  font-size: inherit;
+}
+
+.football-panel-note.football-competitive-facts p,
+.football-panel-note-years p {
+  display: grid;
+  align-content: center;
+  gap: 0.3rem;
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+.football-panel-note.football-competitive-facts p strong,
+.football-panel-note-years p strong {
+  color: var(--accent);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.football-panel-note-years {
+  grid-template-columns: 1fr;
+}
+
+.football-panel-note-years p strong {
+  color: #775a13;
+}
+
+@media (max-width: 900px) {
+  .journey-experience {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .journey-map-wrap {
+    max-width: 720px;
+  }
+
+  .journey-map {
+    aspect-ratio: 1200 / 560;
+  }
+
+  .journey-story {
+    gap: 1rem;
+  }
+
+  .journey-gallery img {
+    max-height: 280px;
+  }
+
+  .journey-gallery .journey-photo-secondary img {
+    max-height: 220px;
+  }
+}
+
+@media (max-width: 700px) {
+  .journey-experience {
+    gap: 1.2rem;
+  }
+
+  .journey-map-wrap {
+    padding: 0.75rem 0.6rem 0.7rem;
+  }
+
+  .journey-map {
+    aspect-ratio: 1.95 / 1;
+  }
+
+  .journey-origin {
+    top: 25%;
+    left: 27%;
+    width: 20%;
+    font-size: 0.42rem;
+  }
+
+  .journey-gallery {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  }
+
+  .journey-gallery figure:nth-child(2) {
+    margin-top: 0.8rem;
+  }
+
+  .journey-gallery img {
+    max-height: 250px;
+  }
+
+  .journey-gallery .journey-photo-secondary img {
+    max-height: 190px;
+  }
+
+  .football-experience {
+    max-width: 100%;
+  }
+
+  .football-panel {
+    padding-inline: 0.75rem;
+    gap: 1rem;
+  }
+
+  .football-timeline-instruction {
+    margin-bottom: 0.45rem;
+  }
+
+  .football-panel-note.football-competitive-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 100px;
+    padding: 0.9rem 0;
+    border-top: 1px solid #d1c8b8;
+  }
+
+  .football-panel-note-years {
+    min-height: 90px;
+    padding: 0.8rem 0;
+  }
+}
