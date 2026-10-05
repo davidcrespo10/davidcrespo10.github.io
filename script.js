@@ -30,3 +30,71 @@ if (menuToggle && siteNav) {
 
   window.matchMedia("(min-width: 761px)").addEventListener("change", closeMenu);
 }
+
+const projectTabs = Array.from(document.querySelectorAll('[role="tab"][aria-controls]'));
+
+if (projectTabs.length > 0) {
+  const selectProject = (tab, moveFocus = false) => {
+    projectTabs.forEach((projectTab) => {
+      const isSelected = projectTab === tab;
+      const panel = document.getElementById(projectTab.getAttribute("aria-controls"));
+
+      projectTab.setAttribute("aria-selected", String(isSelected));
+      projectTab.tabIndex = isSelected ? 0 : -1;
+      projectTab.classList.toggle("is-active", isSelected);
+
+      if (panel) {
+        panel.hidden = !isSelected;
+      }
+    });
+
+    if (moveFocus) {
+      tab.focus();
+    }
+  };
+
+  projectTabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => selectProject(tab));
+
+    tab.addEventListener("keydown", (event) => {
+      let nextIndex;
+
+      if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+        nextIndex = (index + 1) % projectTabs.length;
+      } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+        nextIndex = (index - 1 + projectTabs.length) % projectTabs.length;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = projectTabs.length - 1;
+      } else {
+        return;
+      }
+
+      event.preventDefault();
+      selectProject(projectTabs[nextIndex], true);
+    });
+  });
+}
+
+  document.querySelectorAll(".zara-stage, .airbnb-node").forEach((stage) => {
+    stage.addEventListener("click", () => {
+      const group = stage.parentElement;
+
+      if (!group) {
+        return;
+      }
+
+      group.querySelectorAll(".zara-stage, .airbnb-node").forEach((groupStage) => {
+        const isSelected = groupStage === stage;
+        groupStage.classList.toggle("is-current", isSelected);
+        groupStage.setAttribute("aria-pressed", String(isSelected));
+      });
+
+      const panel = stage.closest(".project-panel");
+
+      if (panel && stage.dataset.stage) {
+        panel.dataset.activeStage = stage.dataset.stage;
+      }
+    });
+  });

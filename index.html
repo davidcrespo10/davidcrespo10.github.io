@@ -129,9 +129,151 @@
         </div>
       </section>
 
-      <section class="placeholder-section" id="work" aria-labelledby="work-title">
-        <p class="section-number">02 /</p>
-        <h2 id="work-title">SELECTED WORK</h2>
+      <section class="work-section" id="work" aria-labelledby="work-title">
+        <div class="work-heading">
+          <p class="section-number">02 <span>/</span> SELECTED WORK</p>
+          <h2 id="work-title">Different problems.<br><em>One way of working.</em></h2>
+          <p class="work-intro">Credit-risk model validation, customer analytics and database analysis—different contexts connected by the same interest in understanding data and using it to solve real problems.</p>
+        </div>
+
+        <div class="work-explorer">
+          <div class="project-index" role="tablist" aria-label="Selected work projects" aria-orientation="vertical">
+            <button class="project-tab is-active" id="tab-pwc" type="button" role="tab" aria-selected="true" aria-controls="panel-pwc" tabindex="0">
+              <span class="project-tab-number">01</span>
+              <span class="project-tab-copy"><span class="project-tab-title">PwC Madrid</span><span class="project-tab-type">Professional experience</span></span>
+              <span class="project-tab-indicator" aria-hidden="true"></span>
+            </button>
+            <button class="project-tab" id="tab-zara" type="button" role="tab" aria-selected="false" aria-controls="panel-zara" tabindex="-1">
+              <span class="project-tab-number">02</span>
+              <span class="project-tab-copy"><span class="project-tab-title">Customer Analytics — Zara</span><span class="project-tab-type">University project</span></span>
+              <span class="project-tab-indicator" aria-hidden="true"></span>
+            </button>
+            <button class="project-tab" id="tab-airbnb" type="button" role="tab" aria-selected="false" aria-controls="panel-airbnb" tabindex="-1">
+              <span class="project-tab-number">03</span>
+              <span class="project-tab-copy"><span class="project-tab-title">Database &amp; Data Analytics</span><span class="project-tab-type">Airbnb Madrid · University</span></span>
+              <span class="project-tab-indicator" aria-hidden="true"></span>
+            </button>
+            <button class="project-tab project-tab-retail" id="tab-retail" type="button" role="tab" aria-selected="false" aria-controls="panel-retail" tabindex="-1">
+              <span class="project-tab-number">04</span>
+              <span class="project-tab-copy"><span class="project-tab-title">Retail Analytics Project</span><span class="project-tab-type">IN DEVELOPMENT</span></span>
+              <span class="project-tab-indicator" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <div class="project-panels">
+            <article class="project-panel project-panel-pwc" id="panel-pwc" role="tabpanel" aria-labelledby="tab-pwc" tabindex="0">
+              <div class="pwc-copy">
+                <p class="project-kicker">PROFESSIONAL EXPERIENCE <span>·</span> SUMMER 2026</p>
+                <div class="project-title-row">
+                  <h3>PwC Madrid</h3>
+                  <span class="project-area">Financial Risk &amp; Regulation / GRC</span>
+                </div>
+                <p class="project-summary">An internship on a project for a major financial institution, focused on validating credit risk models across portfolios—especially PD and EAD.</p>
+
+                <div class="pwc-details">
+                  <div class="pwc-detail">
+                    <h4>Context</h4>
+                    <p>Validation of credit risk models using financial datasets.</p>
+                  </div>
+                  <div class="pwc-detail">
+                    <h4>What I worked on</h4>
+                    <p>Independently replicated calculations; ran statistical tests on model performance, segmentation and consistency; reviewed R code, corrected errors and improved efficiency; contributed to technical documentation.</p>
+                  </div>
+                  <div class="pwc-detail">
+                    <h4>Tools / methods</h4>
+                    <p>R, SAS and Excel for data extraction, preparation and analysis.</p>
+                  </div>
+                  <div class="pwc-detail pwc-takeaway">
+                    <h4>What I took from it</h4>
+                    <p>The part I enjoyed most was the combination of quantitative analysis, statistics and programming.</p>
+                  </div>
+                </div>
+              </div>
+              <figure class="pwc-photo">
+                <img src="assets/images/pwc-madrid.jpeg" alt="David outside the PwC Madrid office">
+                <figcaption>PwC Madrid · Summer 2026</figcaption>
+              </figure>
+            </article>
+
+            <article class="project-panel project-panel-zara" id="panel-zara" role="tabpanel" aria-labelledby="tab-zara" tabindex="0" data-active-stage="input" hidden>
+              <div class="project-panel-heading">
+                <p class="project-kicker">CUSTOMER ANALYTICS <span>·</span> UNIVERSITY PROJECT</p>
+                <h3>Customer Analytics<br><em>&amp; Segmentation — Zara</em></h3>
+                <p class="project-summary">A survey of 105 consumers became a study of customer behaviour, satisfaction and repurchase intention—and a basis for business recommendations and KPIs.</p>
+              </div>
+              <p class="visual-label">PROJECT FLOW</p>
+              <div class="zara-visual" aria-label="Project flow from survey input, through customer analysis, to business application">
+                <button class="zara-stage zara-survey is-current" type="button" data-stage="input" aria-pressed="true">
+                  <span class="zara-stage-index">INPUT</span>
+                  <span class="zara-stage-title">Consumer survey</span>
+                  <span class="zara-stage-note">105 consumers</span>
+                </button>
+                <span class="zara-connector" aria-hidden="true"></span>
+                <button class="zara-stage zara-analysis" type="button" data-stage="analysis" aria-pressed="false">
+                  <span class="zara-stage-index">ANALYSIS</span>
+                  <span class="zara-analysis-mark" aria-hidden="true"></span>
+                  <span class="zara-stage-note">Customer behaviour<br>Satisfaction · Repurchase intention</span>
+                </button>
+                <span class="zara-connector" aria-hidden="true"></span>
+                <button class="zara-stage zara-output" type="button" data-stage="application" aria-pressed="false">
+                  <span class="zara-stage-index">APPLICATION</span>
+                  <span class="zara-stage-title">Business recommendations</span>
+                  <span class="zara-stage-note">KPIs</span>
+                </button>
+              </div>
+              <div class="project-methods">
+                <span>SPSS</span><span>Correlations</span><span>t-tests</span><span>ANOVA</span><span>Hierarchical clustering</span><span>K-means</span>
+              </div>
+            </article>
+
+            <article class="project-panel project-panel-airbnb" id="panel-airbnb" role="tabpanel" aria-labelledby="tab-airbnb" tabindex="0" hidden>
+              <div class="project-panel-heading">
+                <p class="project-kicker">DATABASE &amp; DATA ANALYTICS <span>·</span> UNIVERSITY PROJECT</p>
+                <h3>Database &amp; Data Analytics<br><em>Airbnb Madrid</em></h3>
+                <p class="project-summary">Designed and analysed a relational database using real Airbnb Madrid data, then used Python for data cleaning, exploratory analysis and visualisations.</p>
+              </div>
+              <p class="visual-label">DATA STRUCTURE → DATABASE ANALYSIS → EXPLORATORY ANALYSIS → INSIGHTS</p>
+              <div class="airbnb-flow" aria-label="Project workflow from relational database structure, through SQL database analysis and Python exploratory analysis, to visual insights">
+                <div class="airbnb-flow-line" aria-hidden="true"></div>
+                <button class="airbnb-node airbnb-node-database is-current" type="button" aria-pressed="true">
+                  <span class="airbnb-node-index">01</span>
+                  <span class="airbnb-node-title">Structure</span>
+                  <span class="airbnb-node-copy">Relational database<br>Entity-relationship model<br>Normalization</span>
+                  <span class="airbnb-node-tool">DATA STRUCTURE</span>
+                </button>
+                <button class="airbnb-node airbnb-node-sql" type="button" aria-pressed="false">
+                  <span class="airbnb-node-index">02</span>
+                  <span class="airbnb-node-title">Analyse</span>
+                  <span class="airbnb-node-copy">SQL queries<br>Prices · Neighbourhoods<br>Room types · Review activity</span>
+                  <span class="airbnb-node-tool">DATABASE ANALYSIS</span>
+                </button>
+                <button class="airbnb-node airbnb-node-python" type="button" aria-pressed="false">
+                  <span class="airbnb-node-index">03</span>
+                  <span class="airbnb-node-title">Explore</span>
+                  <span class="airbnb-node-copy">Data cleaning · EDA<br>Python · pandas · NumPy</span>
+                  <span class="airbnb-node-tool">EXPLORATORY ANALYSIS</span>
+                </button>
+                <button class="airbnb-node airbnb-node-insights" type="button" aria-pressed="false">
+                  <span class="airbnb-node-index">04</span>
+                  <span class="airbnb-node-title">Insights</span>
+                  <span class="airbnb-node-copy">Visualisations<br>Prices · Availability<br>Supply / listing patterns</span>
+                  <span class="airbnb-node-tool">VISUAL INSIGHTS</span>
+                </button>
+              </div>
+            </article>
+
+            <article class="project-panel project-panel-retail" id="panel-retail" role="tabpanel" aria-labelledby="tab-retail" tabindex="0" hidden>
+              <div class="retail-status">IN DEVELOPMENT</div>
+              <p class="project-kicker">PERSONAL DATA ANALYTICS PROJECT</p>
+              <h3>Retail Analytics Project</h3>
+              <p class="project-summary">A project using real retail data to analyse campaigns and promotions, with the goal of translating analysis into business recommendations.</p>
+              <div class="retail-tools" aria-label="Tools and methods">
+                <span>PostgreSQL</span><span>Python</span><span>Power BI</span><span>Statistics</span>
+              </div>
+              <p class="retail-progress">Currently in development.</p>
+            </article>
+          </div>
+        </div>
       </section>
       <section class="placeholder-section" id="journey-stories" aria-labelledby="journey-title">
         <p class="section-number">03 /</p>
