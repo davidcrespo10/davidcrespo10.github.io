@@ -236,3 +236,55 @@ if (footballClubReveal && footballClubToggle && footballClubAnswer) {
   footballClubToggle.hidden = false;
   setFootballClubExpanded(false);
 }
+
+const mindsetSection = document.querySelector(".mindset-section");
+const mindsetTabs = Array.from(document.querySelectorAll('.mindset-node[role="tab"][aria-controls]'));
+
+if (mindsetSection && mindsetTabs.length > 0) {
+  const mindsetPanels = mindsetTabs.map((tab) => document.getElementById(tab.getAttribute("aria-controls")));
+
+  if (mindsetPanels.every((panel) => panel !== null)) {
+    const selectMindsetPrinciple = (tab, moveFocus = false) => {
+      const selectedIndex = mindsetTabs.indexOf(tab);
+
+      mindsetTabs.forEach((mindsetTab, index) => {
+        const isSelected = index === selectedIndex;
+        mindsetTab.setAttribute("aria-selected", String(isSelected));
+        mindsetTab.tabIndex = isSelected ? 0 : -1;
+        mindsetPanels[index].hidden = !isSelected;
+      });
+
+      mindsetSection.dataset.activePrinciple = tab.dataset.principle;
+
+      if (moveFocus) {
+        tab.focus();
+      }
+    };
+
+    mindsetTabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => selectMindsetPrinciple(tab));
+
+      tab.addEventListener("keydown", (event) => {
+        let nextIndex;
+
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          nextIndex = (index + 1) % mindsetTabs.length;
+        } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          nextIndex = (index - 1 + mindsetTabs.length) % mindsetTabs.length;
+        } else if (event.key === "Home") {
+          nextIndex = 0;
+        } else if (event.key === "End") {
+          nextIndex = mindsetTabs.length - 1;
+        } else {
+          return;
+        }
+
+        event.preventDefault();
+        selectMindsetPrinciple(mindsetTabs[nextIndex], true);
+      });
+    });
+
+    mindsetSection.classList.add("has-interaction");
+    selectMindsetPrinciple(mindsetTabs.find((tab) => tab.getAttribute("aria-selected") === "true") || mindsetTabs[0]);
+  }
+}

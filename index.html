@@ -500,11 +500,116 @@
           </aside>
         </div>
       </section>
-      <section class="placeholder-section" id="mindset" aria-labelledby="mindset-title">
-        <p class="section-number">05 /</p>
-        <h2 id="mindset-title">MINDSET</h2>
+      <section class="mindset-section" id="mindset" aria-labelledby="mindset-title">
+        <div class="mindset-heading">
+          <p class="section-number">05 <span>/</span> MINDSET</p>
+          <h2 id="mindset-title">What stays constant.</h2>
+          <p>I’m still exploring, trying new things and discovering what I genuinely enjoy. What remains consistent is how I approach those experiences.</p>
+        </div>
+
+        <div class="mindset-explorer">
+          <div class="mindset-constellation" role="tablist" aria-label="Five principles that shape how I approach things">
+            <svg class="mindset-connections" viewBox="0 0 360 320" aria-hidden="true">
+              <path class="mindset-link mindset-link-curiosity-analysis" d="M180 28 284 116"/>
+              <path class="mindset-link mindset-link-curiosity-adaptability" d="M180 28 111 270"/>
+              <path class="mindset-link mindset-link-analysis-discipline" d="M284 116 76 116"/>
+              <path class="mindset-link mindset-link-discipline-ambition" d="M76 116 261 270"/>
+              <path class="mindset-link mindset-link-adaptability-ambition" d="M111 270 261 270"/>
+            </svg>
+            <button class="mindset-node mindset-node-curiosity" id="mindset-tab-curiosity" type="button" role="tab" data-principle="curiosity" aria-selected="true" aria-controls="mindset-panel-curiosity">
+              <span class="mindset-node-dot" aria-hidden="true"></span><span>CURIOSITY</span>
+            </button>
+            <button class="mindset-node mindset-node-analysis" id="mindset-tab-analysis" type="button" role="tab" data-principle="analysis" aria-selected="false" aria-controls="mindset-panel-analysis">
+              <span class="mindset-node-dot" aria-hidden="true"></span><span>ANALYTICAL THINKING</span>
+            </button>
+            <button class="mindset-node mindset-node-discipline" id="mindset-tab-discipline" type="button" role="tab" data-principle="discipline" aria-selected="false" aria-controls="mindset-panel-discipline">
+              <span class="mindset-node-dot" aria-hidden="true"></span><span>DISCIPLINE</span>
+            </button>
+            <button class="mindset-node mindset-node-adaptability" id="mindset-tab-adaptability" type="button" role="tab" data-principle="adaptability" aria-selected="false" aria-controls="mindset-panel-adaptability">
+              <span class="mindset-node-dot" aria-hidden="true"></span><span>ADAPTABILITY</span>
+            </button>
+            <button class="mindset-node mindset-node-ambition" id="mindset-tab-ambition" type="button" role="tab" data-principle="ambition" aria-selected="false" aria-controls="mindset-panel-ambition">
+              <span class="mindset-node-dot" aria-hidden="true"></span><span>AMBITION</span>
+            </button>
+          </div>
+
+          <div class="mindset-details" aria-live="polite">
+            <article class="mindset-detail" id="mindset-panel-curiosity" role="tabpanel" aria-labelledby="mindset-tab-curiosity" tabindex="0">
+              <p class="mindset-detail-number">01 <span>/</span> CURIOSITY</p>
+              <h3>First, I want to try it.</h3>
+              <p>I’m naturally curious, and usually like to understand something first before trying it for myself. In Hong Kong that can mean choosing a different restaurant, trying unfamiliar food or picking up a sport like tennis, padel or pickleball. Trying things is often how I discover what genuinely interests me.</p>
+              <div class="mindset-evidence">
+                <p>SEEN IN</p>
+                <ul><li>Different cultures and food</li><li>New sports and experiences</li><li><a href="#journey-stories">31 countries visited</a></li></ul>
+              </div>
+            </article>
+            <article class="mindset-detail" id="mindset-panel-analysis" role="tabpanel" aria-labelledby="mindset-tab-analysis" tabindex="0">
+              <p class="mindset-detail-number">02 <span>/</span> ANALYTICAL THINKING</p>
+              <h3>Look beyond the obvious.</h3>
+              <p>What I enjoy most is finding the explanation that is not obvious at first. I like taking messy information, structuring it, finding patterns and turning it into something understandable enough to support a real decision.</p>
+              <div class="mindset-evidence">
+                <p>SEEN IN</p>
+                <ul><li>PwC</li><li>Zara Customer Analytics</li><li>Airbnb Madrid</li></ul>
+              </div>
+            </article>
+            <article class="mindset-detail" id="mindset-panel-discipline" role="tabpanel" aria-labelledby="mindset-tab-discipline" tabindex="0">
+              <p class="mindset-detail-number">03 <span>/</span> DISCIPLINE</p>
+              <h3>Consistency, learned on the pitch.</h3>
+              <p>Football taught me the habit of showing up consistently. University has made me apply that discipline elsewhere: organising myself, balancing different responsibilities and continuing to work when something requires time rather than motivation.</p>
+              <div class="mindset-evidence">
+                <p>SEEN IN</p>
+                <ul><li><a href="#football">13 years of competitive football</a></li><li>University</li><li>Organisation</li></ul>
+              </div>
+            </article>
+            <article class="mindset-detail" id="mindset-panel-adaptability" role="tabpanel" aria-labelledby="mindset-tab-adaptability" tabindex="0">
+              <p class="mindset-detail-number">04 <span>/</span> ADAPTABILITY</p>
+              <h3>Different places, new ways to connect.</h3>
+              <p>Amsterdam and Hong Kong taught me that there is more than one way to live, study and connect with people. Having both Spanish and international friends has made adapting to different cultures and routines feel natural.</p>
+              <div class="mindset-evidence">
+                <p>SEEN IN</p>
+                <ul><li>Madrid → Amsterdam → Hong Kong</li><li>International friendships</li></ul>
+              </div>
+            </article>
+            <article class="mindset-detail" id="mindset-panel-ambition" role="tabpanel" aria-labelledby="mindset-tab-ambition" tabindex="0">
+              <p class="mindset-detail-number">05 <span>/</span> AMBITION</p>
+              <h3>A career I’m proud of, and a life I enjoy.</h3>
+              <p>I want to build a career I am proud of and reach a strong professional position, but not at the expense of enjoying the life around it. For me, ambition means improving, taking on difficult things and setting high standards while keeping enough balance to stay happy.</p>
+              <div class="mindset-evidence">
+                <p>SEEN IN</p>
+                <ul><li>Top 10% academic ranking</li><li>CEU Merit Scholarship</li><li>Professional and personal projects</li></ul>
+              </div>
+            </article>
+          </div>
+        </div>
       </section>
     </div>
+    <section class="closing-section" id="contact" aria-labelledby="closing-title">
+      <div class="closing-inner">
+        <p class="section-number">06 <span>/</span> NEXT</p>
+        <h2 class="closing-route" id="closing-title" aria-label="Madrid to Amsterdam to Hong Kong to what comes next">
+          <span>MADRID</span><span class="closing-route-arrow" aria-hidden="true">→</span>
+          <span>AMSTERDAM</span><span class="closing-route-arrow" aria-hidden="true">→</span>
+          <span>HONG KONG</span><span class="closing-route-arrow" aria-hidden="true">→</span>
+          <span class="closing-route-question">?</span>
+        </h2>
+        <p class="closing-phrase">Still exploring. Still asking why.</p>
+
+        <nav class="closing-contact" aria-label="Contact">
+          <p class="closing-contact-label">LET’S CONNECT</p>
+          <div class="closing-contact-links">
+            <a class="closing-contact-link" href="mailto:crespodavid22@gmail.com">
+              <span class="closing-contact-action">Email <span aria-hidden="true">↗</span></span>
+              <span class="closing-contact-detail">crespodavid22@gmail.com</span>
+            </a>
+            <a class="closing-contact-link" href="https://www.linkedin.com/in/david-crespo-s%C3%A1nchez">
+              <span class="closing-contact-action">LinkedIn <span aria-hidden="true">↗</span></span>
+              <span class="closing-contact-detail">linkedin.com/in/david-crespo-sánchez</span>
+            </a>
+          </div>
+          <a class="back-to-top" href="#home">BACK TO TOP <span aria-hidden="true">↑</span></a>
+        </nav>
+      </div>
+    </section>
   </main>
 </body>
 </html>
