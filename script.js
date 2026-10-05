@@ -215,3 +215,24 @@ if (footballExperience && footballTabs.length > 0) {
   selectFootballMoment(initialTab);
   window.addEventListener("resize", updateFootballMarker);
 }
+
+const footballClubReveal = document.querySelector(".football-club-reveal");
+const footballClubToggle = document.querySelector(".football-club-toggle");
+const footballClubAnswer = document.querySelector("#football-club-answer");
+
+if (footballClubReveal && footballClubToggle && footballClubAnswer) {
+  const setFootballClubExpanded = (isExpanded) => {
+    footballClubToggle.setAttribute("aria-expanded", String(isExpanded));
+    footballClubToggle.textContent = isExpanded ? "Hide answer ↑" : "Reveal my club →";
+    footballClubAnswer.hidden = !isExpanded;
+    footballClubAnswer.classList.toggle("is-open", isExpanded);
+  };
+
+  footballClubToggle.addEventListener("click", () => {
+    const isExpanded = footballClubToggle.getAttribute("aria-expanded") === "true";
+    setFootballClubExpanded(!isExpanded);
+  });
+
+  footballClubToggle.hidden = false;
+  setFootballClubExpanded(false);
+}
