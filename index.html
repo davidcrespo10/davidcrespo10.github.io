@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#F4F2EC">
   <meta name="description" content="David Crespo Sánchez — Business Intelligence and Business Administration student exploring data, business and new perspectives.">
-  <title>David Crespo Sánchez — Explore, Understand, Decide</title>
+  <title>David Crespo Sánchez — Rooted in Madrid, shaped by elsewhere</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
@@ -14,7 +14,10 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="wordmark" href="#home" aria-label="David Crespo Sánchez, home">DC<span>.</span></a>
+    <a class="wordmark" href="#home" aria-label="David Crespo Sánchez — Madrid, Spain, home">
+      <span class="wordmark-name">DAVID CRESPO</span>
+      <span class="wordmark-place">MADRID <span aria-hidden="true">—</span> ESP</span>
+    </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation">
       <span></span>
       <span></span>
@@ -22,6 +25,7 @@
     <nav class="site-nav" id="primary-navigation" aria-label="Main navigation">
       <ul class="nav-list">
         <li><a href="#home" aria-current="page">Home</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#work">Work</a></li>
         <li><a href="#journey">Journey</a></li>
         <li><a href="#football">Football</a></li>
@@ -33,21 +37,36 @@
   <main>
     <section class="hero" id="home" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow">DAVID CRESPO</p>
-        <h1 id="hero-title">Curious by nature.<br>Analytical by training.</h1>
-        <p class="hero-description">Business Intelligence &amp; Business Administration student exploring how data, business and new perspectives can lead to better decisions.</p>
-        <p class="route-line"><span aria-hidden="true">↗</span> Madrid <span aria-hidden="true">→</span> Amsterdam <span aria-hidden="true">→</span> Hong Kong</p>
+        <p class="eyebrow"><span class="eyebrow-rule" aria-hidden="true"></span> FROM MADRID <span class="eyebrow-separator" aria-hidden="true">/</span> NOW IN HONG KONG</p>
+        <h1 id="hero-title">Always looking<br>further.<br><span>Always asking why.</span></h1>
+        <p class="hero-description">Rooted in Madrid. Shaped by elsewhere. Curious about what makes people, businesses and ideas move.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#work">Explore my work <span aria-hidden="true">↗</span></a>
-          <a class="button button-secondary" href="#journey">My journey <span aria-hidden="true">→</span></a>
+          <a class="button button-primary" href="#about">A little about me <span aria-hidden="true">↘</span></a>
+          <a class="button button-secondary" href="#journey">Follow the journey <span aria-hidden="true">→</span></a>
         </div>
       </div>
-      <div class="portrait-placeholder" role="img" aria-label="Personal photo placeholder">
-        <div class="portrait-frame">
-          <span class="placeholder-label">Personal photo</span>
-        </div>
-        <span class="image-index" aria-hidden="true">01 / 01</span>
+      <div class="hero-visual">
+        <img class="hero-image" src="assets/images/david-hero.jpg" alt="David Crespo beside a stone bridge in a green landscape">
+        <p class="image-caption"><span>DAVID CRESPO SÁNCHEZ</span></p>
       </div>
+    </section>
+
+    <section class="transit" id="journey" aria-label="Places that have shaped my journey">
+      <p class="transit-heading">MY JOURNEY</p>
+      <ol class="transit-line">
+        <li class="transit-stop transit-stop-home">
+          <span class="stop-marker" aria-hidden="true"></span>
+          <div class="stop-copy"><span class="stop-city">MADRID</span><span class="stop-detail">Home</span></div>
+        </li>
+        <li class="transit-stop transit-stop-past">
+          <span class="stop-marker" aria-hidden="true"></span>
+          <div class="stop-copy"><span class="stop-city">AMSTERDAM</span><span class="stop-detail">Exchange · 2025</span></div>
+        </li>
+        <li class="transit-stop transit-stop-current">
+          <span class="stop-marker" aria-hidden="true"></span>
+          <div class="stop-copy"><span class="stop-city">HONG KONG</span><span class="stop-detail">Current chapter · 2026</span></div>
+        </li>
+      </ol>
     </section>
 
     <section class="statistics" aria-label="At a glance">
@@ -69,16 +88,52 @@
       </div>
     </section>
 
+    <section class="approach" aria-label="Explore, understand, decide">
+      <p class="approach-label">A way of seeing things</p>
+      <ol class="approach-sequence">
+        <li><span class="approach-index">01</span><span class="approach-word">EXPLORE</span></li>
+        <li><span class="approach-arrow" aria-hidden="true">→</span></li>
+        <li><span class="approach-index">02</span><span class="approach-word">UNDERSTAND</span></li>
+        <li><span class="approach-arrow" aria-hidden="true">→</span></li>
+        <li><span class="approach-index">03</span><span class="approach-word">DECIDE</span></li>
+      </ol>
+    </section>
+
     <div class="section-placeholders" aria-label="More about David">
-      <section class="placeholder-section" id="about" aria-labelledby="about-title">
-        <p class="section-number">01 /</p>
-        <h2 id="about-title">ABOUT</h2>
+      <section class="about-section" id="about" aria-labelledby="about-title">
+        <div class="about-heading">
+          <p class="section-number">01 <span>/</span> ABOUT</p>
+          <h2 id="about-title">Rooted in Madrid.<br><em>Shaped by elsewhere.</em></h2>
+          <div class="geo-mark" aria-hidden="true"></div>
+        </div>
+        <div class="about-body">
+          <div class="about-copy">
+            <p class="about-intro">I’m David Crespo Sánchez, 21, from Madrid. I’m studying a bilingual Double Degree in Business Intelligence and Business Administration at Universidad CEU San Pablo, currently abroad at The Hang Seng University of Hong Kong.</p>
+            <p>A previous exchange at Vrije Universiteit Amsterdam—and 31 countries visited—has made unfamiliar environments feel like an invitation, not an obstacle. I’m analytical, curious and ambitious: drawn to new challenges, and especially to understanding why things happen, not just what the result is.</p>
+            <p>I’m interested in Data Analytics, Product Analytics, Advanced Analytics and Business Intelligence—combining technical analysis with real business problems to support data-driven decisions.</p>
+          </div>
+          <div class="identity-map" aria-label="Rooted in Madrid, shaped by Amsterdam, Hong Kong and 31 countries">
+            <div class="identity-root">
+              <span class="identity-label">ROOTED</span>
+              <span class="identity-city">Madrid</span>
+              <span class="identity-country">Spain</span>
+            </div>
+            <span class="identity-connector" aria-hidden="true"></span>
+            <div class="identity-shaped">
+              <span class="identity-label">SHAPED BY</span>
+              <span class="identity-city">Amsterdam</span>
+              <span class="identity-city">Hong Kong</span>
+              <span class="identity-travel"><span>31</span> countries</span>
+            </div>
+          </div>
+        </div>
       </section>
+
       <section class="placeholder-section" id="work" aria-labelledby="work-title">
         <p class="section-number">02 /</p>
         <h2 id="work-title">SELECTED WORK</h2>
       </section>
-      <section class="placeholder-section" id="journey" aria-labelledby="journey-title">
+      <section class="placeholder-section" id="journey-stories" aria-labelledby="journey-title">
         <p class="section-number">03 /</p>
         <h2 id="journey-title">JOURNEY</h2>
       </section>
