@@ -1707,6 +1707,10 @@ h1 span {
 }
 
 @media (max-width: 380px) {
+  .approach-sequence {
+    gap: 0.1rem;
+  }
+
   .hero-actions {
     align-items: stretch;
     flex-direction: column;
