@@ -31,7 +31,119 @@ if (menuToggle && siteNav) {
   window.matchMedia("(min-width: 761px)").addEventListener("change", closeMenu);
 }
 
-const projectTabs = Array.from(document.querySelectorAll('[role="tab"][aria-controls]'));
+const siteHeader = document.querySelector(".site-header");
+const navigationLinks = Array.from(document.querySelectorAll('#primary-navigation a[href^="#"]'));
+const navigationSections = navigationLinks
+  .map((link) => document.getElementById(link.getAttribute("href").slice(1)))
+  .filter((section) => section !== null);
+const contactSection = document.getElementById("contact");
+const progressIndicator = document.querySelector(".reading-progress");
+
+if (siteHeader && navigationLinks.length > 0 && "IntersectionObserver" in window) {
+  const setCurrentNavigationTarget = (sectionId) => {
+    navigationLinks.forEach((link) => {
+      if (link.getAttribute("href") === `#${sectionId}`) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  };
+  const initialHash = window.location.hash.slice(1);
+  const initialLink = navigationLinks.find((link) => link.getAttribute("href") === `#${initialHash}`);
+  const activeSections = new Set();
+  let sectionObserver;
+  let contactObserver;
+  let contactIsDominant = false;
+
+  if (initialHash === "contact") {
+    setCurrentNavigationTarget("");
+  } else {
+    setCurrentNavigationTarget(initialLink ? initialHash : "home");
+  }
+
+  const updateCurrentSection = () => {
+    if (contactIsDominant) {
+      setCurrentNavigationTarget("");
+      return;
+    }
+
+    const headerHeight = siteHeader.getBoundingClientRect().height;
+    const currentSection = Array.from(activeSections).sort((first, second) =>
+      Math.abs(first.getBoundingClientRect().top - headerHeight) -
+      Math.abs(second.getBoundingClientRect().top - headerHeight)
+    )[0];
+
+    setCurrentNavigationTarget(currentSection && currentSection.id !== "contact" ? currentSection.id : "");
+  };
+
+  const observeNavigationSections = () => {
+    if (sectionObserver) {
+      sectionObserver.disconnect();
+    }
+    if (contactObserver) {
+      contactObserver.disconnect();
+    }
+    activeSections.clear();
+    contactIsDominant = false;
+
+    const activationTop = Math.max(0, Math.ceil(siteHeader.getBoundingClientRect().height) - 1);
+    const bottomInset = Math.max(0, window.innerHeight - activationTop - 2);
+    sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          activeSections.add(entry.target);
+        } else {
+          activeSections.delete(entry.target);
+        }
+      });
+      updateCurrentSection();
+    }, {
+      rootMargin: `-${activationTop}px 0px -${bottomInset}px 0px`,
+      threshold: 0
+    });
+
+    navigationSections.forEach((section) => sectionObserver.observe(section));
+    if (contactSection) {
+      contactObserver = new IntersectionObserver((entries) => {
+        contactIsDominant = entries[0].isIntersecting;
+        updateCurrentSection();
+      }, {
+        rootMargin: `0px 0px -${Math.floor(window.innerHeight * 0.3)}px 0px`,
+        threshold: 0
+      });
+      contactObserver.observe(contactSection);
+    }
+  };
+
+  observeNavigationSections();
+  window.addEventListener("resize", observeNavigationSections);
+}
+
+if (progressIndicator) {
+  let progressFrame = 0;
+
+  const updateReadingProgress = () => {
+    if (progressFrame) {
+      return;
+    }
+
+    progressFrame = window.requestAnimationFrame(() => {
+      progressFrame = 0;
+      const scrollableDistance = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollableDistance > 0 && window.scrollY < scrollableDistance - 1
+        ? window.scrollY / scrollableDistance
+        : 1;
+      progressIndicator.style.transform = `scaleX(${Math.min(1, Math.max(0, progress))})`;
+    });
+  };
+
+  window.addEventListener("scroll", updateReadingProgress, { passive: true });
+  window.addEventListener("resize", updateReadingProgress);
+  updateReadingProgress();
+}
+
+const projectTabs = Array.from(document.querySelectorAll('.project-index [role="tab"][aria-controls]'));
 
 if (projectTabs.length > 0) {
   const selectProject = (tab, moveFocus = false) => {
@@ -75,6 +187,8 @@ if (projectTabs.length > 0) {
       selectProject(projectTabs[nextIndex], true);
     });
   });
+
+  selectProject(projectTabs.find((tab) => tab.getAttribute("aria-selected") === "true") || projectTabs[0]);
 }
 
   document.querySelectorAll(".zara-stage, .airbnb-node").forEach((stage) => {
@@ -141,79 +255,122 @@ if (journeyPins.length > 0) {
 }
 
 const footballExperience = document.querySelector(".football-experience");
-const footballTabs = Array.from(document.querySelectorAll('.football-tab[role="tab"][aria-controls]'));
+const footballTimeline = document.querySelector(".football-timeline");
+const footballTimelineOverlay = footballTimeline?.querySelector(".football-timeline-overlay");
+const footballTimelineLine = footballTimeline?.querySelector(".football-timeline-line");
+const footballMarker = document.querySelector(".football-ball-marker");
+const footballMobileProgress = document.querySelector(".football-mobile-progress");
+const footballStages = Array.from(document.querySelectorAll(".football-stage-marker[data-stage]"));
+const footballStories = Array.from(document.querySelectorAll(".football-panel[data-football-stage]"));
 
-if (footballExperience && footballTabs.length > 0) {
-  const footballPanels = footballTabs.map((tab) => document.getElementById(tab.getAttribute("aria-controls")));
-  const footballTimeline = document.querySelector(".football-timeline");
-  const footballMarker = document.querySelector(".football-ball-marker");
-  const initialTab = footballTabs.find((tab) => tab.getAttribute("aria-selected") === "true") || footballTabs[0];
-
+if (footballExperience && footballTimeline && footballTimelineOverlay && footballTimelineLine && footballMarker && footballStages.length > 0 && footballStories.length > 0) {
   const updateFootballMarker = () => {
-    const selectedIndex = footballTabs.findIndex((tab) => tab.getAttribute("aria-selected") === "true");
+    const activeStage = footballStages.find((stage) => stage.classList.contains("is-active"));
 
-    if (selectedIndex < 0 || !footballTimeline || !footballMarker) {
+    if (!activeStage) {
       return;
     }
 
-    if (window.matchMedia("(max-width: 700px)").matches) {
-      const selectedTab = footballTabs[selectedIndex];
-      footballMarker.style.left = "0.7rem";
-      footballMarker.style.top = `${selectedTab.offsetTop + selectedTab.offsetHeight / 2}px`;
-    } else {
-      footballMarker.style.left = `${((selectedIndex + 0.5) / footballTabs.length) * 100}%`;
-      footballMarker.style.top = "";
-    }
-  };
+    const firstDot = footballStages[0].querySelector(".football-tab-dot");
+    const lastDot = footballStages[footballStages.length - 1].querySelector(".football-tab-dot");
+    const timelineOverlayBounds = footballTimelineOverlay.getBoundingClientRect();
 
-  const selectFootballMoment = (tab, moveFocus = false) => {
-    const selectedIndex = footballTabs.indexOf(tab);
-
-    footballTabs.forEach((footballTab, index) => {
-      const isSelected = footballTab === tab;
-      footballTab.setAttribute("aria-selected", String(isSelected));
-      footballTab.tabIndex = isSelected ? 0 : -1;
-      footballPanels[index].hidden = !isSelected;
-      footballPanels[index].classList.toggle("is-current", isSelected);
-    });
-
-    if (footballTimeline && footballMarker) {
-      footballTimeline.dataset.activeMoment = String(selectedIndex + 1);
-      updateFootballMarker();
-    }
-
-    if (moveFocus) {
-      tab.focus();
-      tab.scrollIntoView({ block: "nearest", inline: "nearest" });
-    }
-  };
-
-  footballTabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => selectFootballMoment(tab));
-
-    tab.addEventListener("keydown", (event) => {
-      let nextIndex;
-
-      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-        nextIndex = (index + 1) % footballTabs.length;
-      } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
-        nextIndex = (index - 1 + footballTabs.length) % footballTabs.length;
-      } else if (event.key === "Home") {
-        nextIndex = 0;
-      } else if (event.key === "End") {
-        nextIndex = footballTabs.length - 1;
+    if (firstDot && lastDot) {
+      const firstBounds = firstDot.getBoundingClientRect();
+      const lastBounds = lastDot.getBoundingClientRect();
+      footballTimelineLine.classList.toggle("is-vertical", window.matchMedia("(max-width: 700px)").matches);
+      footballTimelineLine.classList.add("has-geometry");
+      if (!footballTimelineLine.classList.contains("is-vertical")) {
+        const firstCenter = firstBounds.left + firstBounds.width / 2;
+        const lastCenter = lastBounds.left + lastBounds.width / 2;
+        footballTimelineLine.style.left = `${firstCenter - timelineOverlayBounds.left}px`;
+        footballTimelineLine.style.top = `${firstBounds.top + firstBounds.height / 2 - timelineOverlayBounds.top - 0.5}px`;
+        footballTimelineLine.style.width = `${lastCenter - firstCenter}px`;
+        footballTimelineLine.style.removeProperty("right");
       } else {
-        return;
+        footballTimelineLine.style.removeProperty("left");
+        footballTimelineLine.style.removeProperty("right");
+        footballTimelineLine.style.removeProperty("top");
+        footballTimelineLine.style.removeProperty("width");
       }
+    }
 
-      event.preventDefault();
-      selectFootballMoment(footballTabs[nextIndex], true);
+    const milestoneDot = activeStage.querySelector(".football-tab-dot");
+
+    if (milestoneDot) {
+      const dotBounds = milestoneDot.getBoundingClientRect();
+      footballMarker.style.left = `${dotBounds.left + dotBounds.width / 2 - timelineOverlayBounds.left}px`;
+      footballMarker.style.top = `${dotBounds.top + dotBounds.height / 2 - timelineOverlayBounds.top}px`;
+    }
+  };
+
+  const setActiveFootballStage = (stageNumber) => {
+    const activeStage = footballStages.find((stage) => stage.dataset.stage === stageNumber);
+
+    footballStages.forEach((stage) => {
+      const isActive = stage.dataset.stage === stageNumber;
+      stage.classList.toggle("is-active", isActive);
+      if (isActive) {
+        stage.setAttribute("aria-current", "step");
+      } else {
+        stage.removeAttribute("aria-current");
+      }
     });
-  });
+    if (activeStage && footballMobileProgress) {
+      const label = activeStage.querySelector(".football-tab-label")?.textContent.trim().toLocaleUpperCase();
+      footballMobileProgress.textContent = `${stageNumber} / ${String(footballStages.length).padStart(2, "0")} — ${label}`;
+    }
+    updateFootballMarker();
+  };
 
-  footballExperience.classList.add("has-interaction");
-  selectFootballMoment(initialTab);
-  window.addEventListener("resize", updateFootballMarker);
+  setActiveFootballStage(footballStages[0].dataset.stage);
+
+  const visibleStories = new Set();
+  let storyObserver;
+
+  const observeFootballStories = () => {
+    if (!("IntersectionObserver" in window)) {
+      return;
+    }
+
+    storyObserver?.disconnect();
+    visibleStories.clear();
+    const centerBandInset = Math.round(window.innerHeight * 0.4);
+    storyObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          visibleStories.add(entry.target);
+        } else {
+          visibleStories.delete(entry.target);
+        }
+      });
+
+      const viewportCenter = window.innerHeight / 2;
+      const dominantStory = Array.from(visibleStories).sort((first, second) =>
+        Math.abs(first.getBoundingClientRect().top + first.getBoundingClientRect().height / 2 - viewportCenter) -
+        Math.abs(second.getBoundingClientRect().top + second.getBoundingClientRect().height / 2 - viewportCenter)
+      )[0];
+
+      if (dominantStory) {
+        setActiveFootballStage(dominantStory.dataset.footballStage);
+      }
+    }, {
+      rootMargin: `-${centerBandInset}px 0px -${centerBandInset}px 0px`,
+      threshold: 0
+    });
+
+    footballStories.forEach((story) => storyObserver.observe(story));
+  };
+
+  observeFootballStories();
+
+  window.addEventListener("resize", () => {
+    updateFootballMarker();
+    observeFootballStories();
+  });
+  if ("ResizeObserver" in window && footballTimeline) {
+    new ResizeObserver(updateFootballMarker).observe(footballTimeline);
+  }
 }
 
 const footballClubReveal = document.querySelector(".football-club-reveal");
@@ -262,7 +419,10 @@ if (mindsetSection && mindsetTabs.length > 0) {
     };
 
     mindsetTabs.forEach((tab, index) => {
-      tab.addEventListener("click", () => selectMindsetPrinciple(tab));
+      tab.addEventListener("click", () => {
+        mindsetSection.classList.add("has-interaction");
+        selectMindsetPrinciple(tab);
+      });
 
       tab.addEventListener("keydown", (event) => {
         let nextIndex;
@@ -280,11 +440,11 @@ if (mindsetSection && mindsetTabs.length > 0) {
         }
 
         event.preventDefault();
+        mindsetSection.classList.add("has-interaction");
         selectMindsetPrinciple(mindsetTabs[nextIndex], true);
       });
     });
 
-    mindsetSection.classList.add("has-interaction");
     selectMindsetPrinciple(mindsetTabs.find((tab) => tab.getAttribute("aria-selected") === "true") || mindsetTabs[0]);
   }
 }

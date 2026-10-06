@@ -24,7 +24,7 @@
     </button>
     <nav class="site-nav" id="primary-navigation" aria-label="Main navigation">
       <ul class="nav-list">
-        <li><a href="#home" aria-current="page">Home</a></li>
+        <li><a href="#home" aria-current="location">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#work">Work</a></li>
         <li><a href="#journey-stories">Journey</a></li>
@@ -32,6 +32,7 @@
         <li><a href="#mindset">Mindset</a></li>
       </ul>
     </nav>
+    <div class="reading-progress" aria-hidden="true"></div>
   </header>
 
   <main>
@@ -99,7 +100,7 @@
       </ol>
     </section>
 
-    <div class="section-placeholders" aria-label="More about David">
+    <div class="section-placeholders" role="group" aria-label="More about David">
       <section class="about-section" id="about" aria-labelledby="about-title">
         <div class="about-heading">
           <p class="section-number">01 <span>/</span> ABOUT</p>
@@ -112,7 +113,7 @@
             <p>A previous exchange at Vrije Universiteit Amsterdam—and 31 countries visited—has made unfamiliar environments feel like an invitation, not an obstacle. I’m analytical, curious and ambitious: drawn to new challenges, and especially to understanding why things happen, not just what the result is.</p>
             <p>I’m interested in Data Analytics, Product Analytics, Advanced Analytics and Business Intelligence—combining technical analysis with real business problems to support data-driven decisions.</p>
           </div>
-          <div class="identity-map" aria-label="Rooted in Madrid, shaped by Amsterdam, Hong Kong and 31 countries">
+          <div class="identity-map" role="group" aria-label="Rooted in Madrid, shaped by Amsterdam, Hong Kong and 31 countries">
             <div class="identity-root">
               <span class="identity-label">ROOTED</span>
               <span class="identity-city">Madrid</span>
@@ -202,7 +203,7 @@
                 <p class="project-summary">A survey of 105 consumers became a study of customer behaviour, satisfaction and repurchase intention—and a basis for business recommendations and KPIs.</p>
               </div>
               <p class="visual-label">PROJECT FLOW</p>
-              <div class="zara-visual" aria-label="Project flow from survey input, through customer analysis, to business application">
+              <div class="zara-visual" role="group" aria-label="Project flow from survey input, through customer analysis, to business application">
                 <button class="zara-stage zara-survey is-current" type="button" data-stage="input" aria-pressed="true">
                   <span class="zara-stage-index">INPUT</span>
                   <span class="zara-stage-title">Consumer survey</span>
@@ -233,7 +234,7 @@
                 <p class="project-summary">Designed and analysed a relational database using real Airbnb Madrid data, then used Python for data cleaning, exploratory analysis and visualisations.</p>
               </div>
               <p class="visual-label">DATA STRUCTURE → DATABASE ANALYSIS → EXPLORATORY ANALYSIS → INSIGHTS</p>
-              <div class="airbnb-flow" aria-label="Project workflow from relational database structure, through SQL database analysis and Python exploratory analysis, to visual insights">
+              <div class="airbnb-flow" role="group" aria-label="Project workflow from relational database structure, through SQL database analysis and Python exploratory analysis, to visual insights">
                 <div class="airbnb-flow-line" aria-hidden="true"></div>
                 <button class="airbnb-node airbnb-node-database is-current" type="button" aria-pressed="true">
                   <span class="airbnb-node-index">01</span>
@@ -267,7 +268,7 @@
               <p class="project-kicker">PERSONAL DATA ANALYTICS PROJECT</p>
               <h3>Retail Analytics Project</h3>
               <p class="project-summary">A project using real retail data to analyse campaigns and promotions, with the goal of translating analysis into business recommendations.</p>
-              <div class="retail-tools" aria-label="Tools and methods">
+              <div class="retail-tools" role="group" aria-label="Tools and methods">
                 <span>PostgreSQL</span><span>Python</span><span>Power BI</span><span>Statistics</span>
               </div>
               <p class="retail-progress">Currently in development.</p>
@@ -379,68 +380,43 @@
         </div>
 
         <div class="football-experience">
-          <div class="football-timeline-viewport" aria-label="Select a football milestone">
-            <p class="football-timeline-instruction">Choose a milestone to follow my football journey.</p>
-            <div class="football-timeline" role="tablist" aria-label="Football through the years">
-              <span class="football-ball-marker" aria-hidden="true"></span>
-              <button class="football-tab" id="football-tab-01" type="button" role="tab" aria-selected="true" aria-controls="football-panel-01">
-                <span class="football-tab-index">01</span><span class="football-tab-label">Starting young</span>
-              </button>
-              <button class="football-tab" id="football-tab-02" type="button" role="tab" aria-selected="false" aria-controls="football-panel-02">
-                <span class="football-tab-index">02</span><span class="football-tab-label">Competitive years</span>
-              </button>
-              <button class="football-tab" id="football-tab-03" type="button" role="tab" aria-selected="false" aria-controls="football-panel-03">
-                <span class="football-tab-index">03</span><span class="football-tab-label">Federation stage</span>
-              </button>
-              <button class="football-tab" id="football-tab-04" type="button" role="tab" aria-selected="false" aria-controls="football-panel-04">
-                <span class="football-tab-index">04</span><span class="football-tab-label">Shanghai</span>
-              </button>
-              <button class="football-tab" id="football-tab-05" type="button" role="tab" aria-selected="false" aria-controls="football-panel-05">
-                <span class="football-tab-index">05</span><span class="football-tab-label">What it gave me</span>
-              </button>
-              <button class="football-tab" id="football-tab-06" type="button" role="tab" aria-selected="false" aria-controls="football-panel-06">
-                <span class="football-tab-index">06</span><span class="football-tab-label">Still every Sunday</span>
-              </button>
+          <div class="football-timeline-viewport">
+            <p class="football-mobile-progress" aria-live="polite">01 / 04 — COMPETITIVE YEARS</p>
+            <div class="football-timeline" role="list" aria-label="Football story stages">
+              <div class="football-timeline-overlay" aria-hidden="true">
+                <span class="football-timeline-line"></span>
+                <span class="football-ball-marker"></span>
+              </div>
+              <div class="football-stage-marker is-active" id="football-stage-01" role="listitem" data-stage="01">
+                <span class="football-tab-dot" aria-hidden="true"></span><span class="football-tab-index">01</span><span class="football-tab-label">Competitive years</span>
+              </div>
+              <div class="football-stage-marker" id="football-stage-02" role="listitem" data-stage="02">
+                <span class="football-tab-dot" aria-hidden="true"></span><span class="football-tab-index">02</span><span class="football-tab-label">Shanghai</span>
+              </div>
+              <div class="football-stage-marker" id="football-stage-03" role="listitem" data-stage="03">
+                <span class="football-tab-dot" aria-hidden="true"></span><span class="football-tab-index">03</span><span class="football-tab-label">More than the game</span>
+              </div>
+              <div class="football-stage-marker" id="football-stage-04" role="listitem" data-stage="04">
+                <span class="football-tab-dot" aria-hidden="true"></span><span class="football-tab-index">04</span><span class="football-tab-label">Still every Sunday</span>
+              </div>
             </div>
           </div>
 
-          <div class="football-panels" aria-live="polite">
-            <article class="football-panel" id="football-panel-01" role="tabpanel" aria-labelledby="football-tab-01" tabindex="0">
-              <div class="football-panel-copy">
-                <p class="football-step">THE BEGINNING <span>·</span> AGE 5</p>
-                <h3>Starting young</h3>
-                <p>I started playing football at five. Training and showing up regularly were my first lessons in discipline.</p>
-              </div>
-              <figure class="football-photo football-photo-childhood">
-                <img src="assets/images/football-childhood-trophy.jpeg" alt="David as a child with his trophy, with the Spanish federation banner visible in the foreground" loading="lazy">
-                <figcaption>An early football memory</figcaption>
-              </figure>
-            </article>
-
-            <article class="football-panel" id="football-panel-02" role="tabpanel" aria-labelledby="football-tab-02" tabindex="0">
+          <div class="football-panels">
+            <article class="football-panel" id="football-panel-01" data-football-stage="01">
               <div class="football-panel-copy">
                 <p class="football-step">13 YEARS <span>·</span> AGE 5–18</p>
                 <h3>Competitive years</h3>
-                <p>I played competitive football in federated leagues from five to eighteen. As a central midfielder, I learned to read the game and work for the team.</p>
+                <p>I played competitive football from five to eighteen. For ten of those years, I competed in federated football. As a central midfielder, I learned to read the game and work for the team.</p>
               </div>
-              <div class="football-panel-note football-competitive-facts" aria-label="Thirteen years of competitive football; position, central midfielder">
+              <div class="football-panel-note football-competitive-facts" role="group" aria-label="Thirteen years of competitive football, ten years of federated football, position central midfielder">
                 <p><strong>13 YEARS</strong><span>Competitive football</span></p>
+                <p><strong>10 YEARS</strong><span>Federated football</span></p>
                 <p><strong>POSITION</strong><span>Central midfielder</span></p>
               </div>
             </article>
 
-            <article class="football-panel" id="football-panel-03" role="tabpanel" aria-labelledby="football-tab-03" tabindex="0">
-              <div class="football-panel-copy">
-                <p class="football-step">TEN YEARS <span>·</span> FEDERATED FOOTBALL</p>
-                <h3>Federation stage</h3>
-                <p>Competing within the Spanish federation system was an important part of my development as a player and teammate.</p>
-              </div>
-              <div class="football-panel-note football-panel-note-years">
-                <p><strong>10 YEARS</strong><span>In federated football</span></p>
-              </div>
-            </article>
-
-            <article class="football-panel" id="football-panel-04" role="tabpanel" aria-labelledby="football-tab-04" tabindex="0">
+            <article class="football-panel" id="football-panel-02" data-football-stage="02">
               <div class="football-panel-copy">
                 <p class="football-step">TOURNAMENTS <span>·</span> AGE 13</p>
                 <h3>A tournament in Shanghai</h3>
@@ -452,7 +428,7 @@
               </figure>
             </article>
 
-            <article class="football-panel football-panel-gifts" id="football-panel-05" role="tabpanel" aria-labelledby="football-tab-05" tabindex="0">
+            <article class="football-panel football-panel-gifts" id="football-panel-03" data-football-stage="03">
               <div class="football-panel-copy">
                 <p class="football-step">WHAT REMAINS</p>
                 <h3>More than the game</h3>
@@ -463,10 +439,10 @@
               </ol>
             </article>
 
-            <article class="football-panel football-panel-present" id="football-panel-06" role="tabpanel" aria-labelledby="football-tab-06" tabindex="0">
+            <article class="football-panel football-panel-present" id="football-panel-04" data-football-stage="04">
               <div class="football-panel-copy">
                 <p class="football-step">THE PRESENT</p>
-                <h3>STILL EVERY SUNDAY</h3>
+                <h3>Still every Sunday</h3>
                 <p>Football was important while I was growing up, but it is not only a memory. I still play every Sunday with my friends.</p>
                 <p class="football-team-label">My current team is</p>
                 <p class="football-team-name">Sofa FC.</p>
@@ -494,13 +470,13 @@
               <p class="football-epilogue-aside">And according to a completely unbiased family source, it is also the best club in the world.</p>
             </div>
             <figure class="football-epilogue-photo">
-              <img src="assets/images/bernabeu-grandfather.jpeg" alt="David with his grandfather inside Santiago Bernabéu stadium">
+              <img src="assets/images/bernabeu-grandfather.jpeg" alt="David with his grandfather inside Santiago Bernabéu stadium" loading="lazy">
               <figcaption>At Santiago Bernabéu with my grandfather</figcaption>
             </figure>
           </aside>
         </div>
       </section>
-      <section class="mindset-section" id="mindset" aria-labelledby="mindset-title">
+      <section class="mindset-section" id="mindset" aria-labelledby="mindset-title" data-active-principle="curiosity">
         <div class="mindset-heading">
           <p class="section-number">05 <span>/</span> MINDSET</p>
           <h2 id="mindset-title">What stays constant.</h2>
@@ -516,19 +492,19 @@
               <path class="mindset-link mindset-link-discipline-ambition" d="M76 116 261 270"/>
               <path class="mindset-link mindset-link-adaptability-ambition" d="M111 270 261 270"/>
             </svg>
-            <button class="mindset-node mindset-node-curiosity" id="mindset-tab-curiosity" type="button" role="tab" data-principle="curiosity" aria-selected="true" aria-controls="mindset-panel-curiosity">
+            <button class="mindset-node mindset-node-curiosity" id="mindset-tab-curiosity" type="button" role="tab" data-principle="curiosity" aria-selected="true" aria-controls="mindset-panel-curiosity" tabindex="0">
               <span class="mindset-node-dot" aria-hidden="true"></span><span>CURIOSITY</span>
             </button>
-            <button class="mindset-node mindset-node-analysis" id="mindset-tab-analysis" type="button" role="tab" data-principle="analysis" aria-selected="false" aria-controls="mindset-panel-analysis">
+            <button class="mindset-node mindset-node-analysis" id="mindset-tab-analysis" type="button" role="tab" data-principle="analysis" aria-selected="false" aria-controls="mindset-panel-analysis" tabindex="-1">
               <span class="mindset-node-dot" aria-hidden="true"></span><span>ANALYTICAL THINKING</span>
             </button>
-            <button class="mindset-node mindset-node-discipline" id="mindset-tab-discipline" type="button" role="tab" data-principle="discipline" aria-selected="false" aria-controls="mindset-panel-discipline">
+            <button class="mindset-node mindset-node-discipline" id="mindset-tab-discipline" type="button" role="tab" data-principle="discipline" aria-selected="false" aria-controls="mindset-panel-discipline" tabindex="-1">
               <span class="mindset-node-dot" aria-hidden="true"></span><span>DISCIPLINE</span>
             </button>
-            <button class="mindset-node mindset-node-adaptability" id="mindset-tab-adaptability" type="button" role="tab" data-principle="adaptability" aria-selected="false" aria-controls="mindset-panel-adaptability">
+            <button class="mindset-node mindset-node-adaptability" id="mindset-tab-adaptability" type="button" role="tab" data-principle="adaptability" aria-selected="false" aria-controls="mindset-panel-adaptability" tabindex="-1">
               <span class="mindset-node-dot" aria-hidden="true"></span><span>ADAPTABILITY</span>
             </button>
-            <button class="mindset-node mindset-node-ambition" id="mindset-tab-ambition" type="button" role="tab" data-principle="ambition" aria-selected="false" aria-controls="mindset-panel-ambition">
+            <button class="mindset-node mindset-node-ambition" id="mindset-tab-ambition" type="button" role="tab" data-principle="ambition" aria-selected="false" aria-controls="mindset-panel-ambition" tabindex="-1">
               <span class="mindset-node-dot" aria-hidden="true"></span><span>AMBITION</span>
             </button>
           </div>
@@ -543,7 +519,7 @@
                 <ul><li>Different cultures and food</li><li>New sports and experiences</li><li><a href="#journey-stories">31 countries visited</a></li></ul>
               </div>
             </article>
-            <article class="mindset-detail" id="mindset-panel-analysis" role="tabpanel" aria-labelledby="mindset-tab-analysis" tabindex="0">
+            <article class="mindset-detail" id="mindset-panel-analysis" role="tabpanel" aria-labelledby="mindset-tab-analysis" tabindex="0" hidden>
               <p class="mindset-detail-number">02 <span>/</span> ANALYTICAL THINKING</p>
               <h3>Look beyond the obvious.</h3>
               <p>What I enjoy most is finding the explanation that is not obvious at first. I like taking messy information, structuring it, finding patterns and turning it into something understandable enough to support a real decision.</p>
@@ -552,7 +528,7 @@
                 <ul><li>PwC</li><li>Zara Customer Analytics</li><li>Airbnb Madrid</li></ul>
               </div>
             </article>
-            <article class="mindset-detail" id="mindset-panel-discipline" role="tabpanel" aria-labelledby="mindset-tab-discipline" tabindex="0">
+            <article class="mindset-detail" id="mindset-panel-discipline" role="tabpanel" aria-labelledby="mindset-tab-discipline" tabindex="0" hidden>
               <p class="mindset-detail-number">03 <span>/</span> DISCIPLINE</p>
               <h3>Consistency, learned on the pitch.</h3>
               <p>Football taught me the habit of showing up consistently. University has made me apply that discipline elsewhere: organising myself, balancing different responsibilities and continuing to work when something requires time rather than motivation.</p>
@@ -561,7 +537,7 @@
                 <ul><li><a href="#football">13 years of competitive football</a></li><li>University</li><li>Organisation</li></ul>
               </div>
             </article>
-            <article class="mindset-detail" id="mindset-panel-adaptability" role="tabpanel" aria-labelledby="mindset-tab-adaptability" tabindex="0">
+            <article class="mindset-detail" id="mindset-panel-adaptability" role="tabpanel" aria-labelledby="mindset-tab-adaptability" tabindex="0" hidden>
               <p class="mindset-detail-number">04 <span>/</span> ADAPTABILITY</p>
               <h3>Different places, new ways to connect.</h3>
               <p>Amsterdam and Hong Kong taught me that there is more than one way to live, study and connect with people. Having both Spanish and international friends has made adapting to different cultures and routines feel natural.</p>
@@ -570,7 +546,7 @@
                 <ul><li>Madrid → Amsterdam → Hong Kong</li><li>International friendships</li></ul>
               </div>
             </article>
-            <article class="mindset-detail" id="mindset-panel-ambition" role="tabpanel" aria-labelledby="mindset-tab-ambition" tabindex="0">
+            <article class="mindset-detail" id="mindset-panel-ambition" role="tabpanel" aria-labelledby="mindset-tab-ambition" tabindex="0" hidden>
               <p class="mindset-detail-number">05 <span>/</span> AMBITION</p>
               <h3>A career I’m proud of, and a life I enjoy.</h3>
               <p>I want to build a career I am proud of and reach a strong professional position, but not at the expense of enjoying the life around it. For me, ambition means improving, taking on difficult things and setting high standards while keeping enough balance to stay happy.</p>
