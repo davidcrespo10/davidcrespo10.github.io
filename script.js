@@ -229,12 +229,58 @@ if (journeyPins.length > 0) {
     story.classList.toggle("is-current", isSelected);
   });
   const journeyStoryList = document.querySelector(".journey-stories");
+  const updateJourneyStoryHeight = () => {
+    if (!journeyStoryList) {
+      return;
+    }
+
+    const visibleStory = journeyStories.find((story) => !story.hidden);
+    const storyWidth = visibleStory?.getBoundingClientRect().width;
+
+    if (!storyWidth) {
+      return;
+    }
+
+    const previousStates = journeyStories.map((story) => ({
+      hidden: story.hidden,
+      style: story.getAttribute("style")
+    }));
+
+    journeyStories.forEach((story) => {
+      story.hidden = false;
+      story.style.position = "absolute";
+      story.style.top = "0";
+      story.style.left = "-10000px";
+      story.style.width = `${storyWidth}px`;
+      story.style.display = "grid";
+      story.style.visibility = "hidden";
+    });
+    const maxHeight = Math.ceil(Math.max(...journeyStories.map((story) => story.getBoundingClientRect().height)));
+
+    journeyStories.forEach((story, index) => {
+      const previousState = previousStates[index];
+      story.hidden = previousState.hidden;
+      if (previousState.style === null) {
+        story.removeAttribute("style");
+      } else {
+        story.setAttribute("style", previousState.style);
+      }
+    });
+    journeyStoryList.style.minHeight = `${maxHeight}px`;
+  };
+
   if (journeyStoryList) {
     journeyStoryList.classList.add("has-interaction");
+    updateJourneyStoryHeight();
+    window.addEventListener("resize", updateJourneyStoryHeight);
+    document.fonts?.ready.then(updateJourneyStoryHeight);
   }
 
   journeyPins.forEach((pin) => {
     pin.addEventListener("click", () => {
+      if (journeyStoryList) {
+        updateJourneyStoryHeight();
+      }
       const selectedId = pin.getAttribute("aria-controls");
       journeyPins.forEach((journeyPin) => {
         const isSelected = journeyPin === pin;
@@ -376,6 +422,20 @@ if (footballExperience && footballTimeline && footballTimelineOverlay && footbal
 const footballClubReveal = document.querySelector(".football-club-reveal");
 const footballClubToggle = document.querySelector(".football-club-toggle");
 const footballClubAnswer = document.querySelector("#football-club-answer");
+const footballClubImage = footballClubReveal?.querySelector(".football-epilogue-photo img");
+
+if (footballClubReveal && footballClubImage && "IntersectionObserver" in window) {
+  let footballClubImageRequested = false;
+  const footballClubImageObserver = new IntersectionObserver((entries) => {
+    if (!footballClubImageRequested && entries.some((entry) => entry.isIntersecting)) {
+      footballClubImageRequested = true;
+      footballClubImage.loading = "eager";
+      footballClubImageObserver.disconnect();
+    }
+  }, { rootMargin: "900px 0px" });
+
+  footballClubImageObserver.observe(footballClubReveal);
+}
 
 if (footballClubReveal && footballClubToggle && footballClubAnswer) {
   const setFootballClubExpanded = (isExpanded) => {
